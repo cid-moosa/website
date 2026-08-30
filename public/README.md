@@ -1,11 +1,11 @@
-# Girideepam Institute of Advanced Learning (GIAL) — Official Web Portal
+# Girideepam Institute of Advanced Learning (GIAL) — Web Redesign Concept & Testing Project
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
+[![Project: Academic Testing](https://img.shields.io/badge/Project-Academic%20Concept%20%26%20Testing-blue.svg)]()
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
 [![Express](https://img.shields.io/badge/Express-4.x-blue.svg)](https://expressjs.com)
-[![Status: Production Ready](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
 
-> Modern, ultra-responsive, standalone web portal for **Girideepam Institute of Advanced Learning (GIAL)**, Kottayam, Kerala. Featuring dynamic CBCS curriculum explorer windows, domain-thematic interactive canvas animation engines, authentic faculty profile directories, and zero external redirects.
+> **Academic Student Project & Testing Prototype**: An interactive modern web redesign concept for **Girideepam Institute of Advanced Learning (GIAL)**, Kottayam, Kerala. Built for testing modern UX patterns, domain-thematic interactive canvas animation engines, dynamic CBCS curriculum explorer windows, and responsive faculty directories.
 
 ---
 
@@ -24,6 +24,13 @@
 - **Interactive Faculty Profiles Modal**: High-definition faculty portraits, academic qualifications, research specializations, phone/email contact links, and real-time cipher character scramble decryption reveal animations.
 - **Clubs & Associations Showcase**: Full-bleed photo cards with hover-reveal glassmorphic descriptions.
 - **Mobile First & Ultra-Fast**: 100% self-contained frontend with custom glassmorphic scrollbars, responsive bottom action bars, and zero bulky third-party frontend framework overhead.
+
+---
+
+## 🚀 Live Demo & Deployment
+
+- **Live GitHub Pages URL**: [https://cid-moosa.github.io/website/](https://cid-moosa.github.io/website/)
+- **Live Preview URL**: [https://cid-moosa.github.io/website/index.html](https://cid-moosa.github.io/website/index.html)
 
 ---
 
@@ -69,13 +76,13 @@ npm start
 
 ---
 
-## 📜 License
+## 📜 Disclaimer & License
 
-Distributed under the MIT License.
+This is an academic student concept project created for testing and demonstration purposes. Distributed under the MIT License.
 
 ---
 
 <p align="center">
-  Developed with ❤️ for <strong>Girideepam Institute of Advanced Learning</strong><br>
+  Academic Project & Concept for <strong>Girideepam Institute of Advanced Learning</strong><br>
   Maintained by <a href="https://github.com/cid-moosa">@cid-moosa</a>
 </p>

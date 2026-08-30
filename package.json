@@ -1,7 +1,7 @@
 {
   "name": "gial-website",
   "version": "1.0.0",
-  "description": "Girideepam Institute of Advanced Learning — College Website",
+  "description": "Girideepam Institute of Advanced Learning — Academic Testing & Concept Project",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -12,7 +12,7 @@
     "express": "^4.21.0",
     "helmet": "^8.0.0"
   },
-  "keywords": ["college", "education", "gial"],
-  "author": "GIAL",
+  "keywords": ["college", "education", "gial", "student-project", "testing"],
+  "author": "cid-moosa",
   "license": "ISC"
 }
