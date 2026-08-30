@@ -1739,3 +1739,274 @@ section {
   .page-entrance { opacity: 1; animation: none; }
   .header { animation: none; }
 }
+
+
+/* =============================================
+   ADVANCED TRANSLUCENT & FROSTED GLASS EFFECTS
+   (iPhone / macOS / Apple Vision Pro Inspired)
+   ============================================= */
+
+/* ---------- 16. Apple-Style Frosted Glass Material ---------- */
+.glass-ultra {
+  background: rgba(2, 22, 14, 0.45) !important;
+  backdrop-filter: blur(40px) saturate(180%) brightness(1.1) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ---------- 17. Noise Grain Texture Overlay ---------- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ---------- 18. iOS-Style Section Vibrancy ---------- */
+.about,
+.stats,
+.facilities,
+.clubs,
+.testimonials,
+.news,
+.contact,
+.newsletter {
+  background: rgba(2, 18, 12, 0.35) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(150%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ---------- 19. Frosted Glass Cards (Apple Card Style) ---------- */
+.glass-card,
+.program-card,
+.stats__item,
+.vm-card,
+.sl-card,
+.news-card,
+.download-card,
+.club-card,
+.recruiter-chip {
+  background: rgba(4, 26, 18, 0.5) !important;
+  backdrop-filter: blur(20px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.glass-card:hover,
+.program-card:hover,
+.stats__item:hover,
+.vm-card:hover,
+.sl-card:hover,
+.news-card:hover,
+.download-card:hover,
+.club-card:hover,
+.recruiter-chip:hover {
+  background: rgba(6, 38, 27, 0.6) !important;
+  border-color: rgba(52, 211, 153, 0.25) !important;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(16, 185, 129, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ---------- 20. Frosted Navbar (iOS Safari Style) ---------- */
+.header.scrolled .navbar {
+  background: rgba(2, 18, 12, 0.55) !important;
+  backdrop-filter: blur(40px) saturate(200%) brightness(1.05) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- 21. Frosted Footer (Apple Style) ---------- */
+.footer {
+  background: rgba(2, 14, 10, 0.6) !important;
+  backdrop-filter: blur(30px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(170%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ---------- 22. Frosted Mobile Bottom Bar ---------- */
+.mobile-action-bar {
+  background: rgba(2, 18, 12, 0.65) !important;
+  backdrop-filter: blur(40px) saturate(200%) brightness(1.1) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.1) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ---------- 23. iOS-Style Frosted Modal ---------- */
+.faculty-modal-overlay {
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(8px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+}
+.faculty-modal {
+  background: rgba(4, 22, 14, 0.55) !important;
+  backdrop-filter: blur(50px) saturate(200%) brightness(1.1) !important;
+  -webkit-backdrop-filter: blur(50px) saturate(200%) brightness(1.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow:
+    0 25px 100px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ---------- 24. Depth Blur Layers (Parallax Depth-of-Field) ---------- */
+.depth-layer-far {
+  filter: blur(2px);
+  opacity: 0.7;
+}
+.depth-layer-mid {
+  filter: blur(0.5px);
+  opacity: 0.85;
+}
+.depth-layer-near {
+  filter: none;
+  opacity: 1;
+}
+
+/* ---------- 25. iOS-Style Spring Elastic Transitions ---------- */
+.spring-bounce {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.spring-bounce:hover {
+  transform: scale(1.03) !important;
+}
+.spring-bounce:active {
+  transform: scale(0.97) !important;
+  transition-duration: 0.1s !important;
+}
+
+/* Apply spring-bounce to all interactive buttons */
+.btn,
+.btn-primary,
+.btn-outline,
+.btn-more-outline,
+.faculty__filter,
+.programs__tab,
+.back-to-top,
+.mobile-action-bar__btn {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease !important;
+}
+.btn:active,
+.btn-primary:active,
+.btn-outline:active,
+.btn-more-outline:active,
+.faculty__filter:active,
+.programs__tab:active {
+  transform: scale(0.95) !important;
+  transition-duration: 0.1s !important;
+}
+
+/* ---------- 26. Light Refraction Edge Highlight ---------- */
+.program-card::after,
+.stats__item::after,
+.vm-card::after,
+.news-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.12) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ---------- 27. Animated Gradient Mesh Background (Enhanced) ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -10;
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 30%, rgba(6, 78, 59, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(4, 120, 87, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 20%, rgba(251, 191, 36, 0.04) 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 70%, rgba(52, 211, 153, 0.05) 0%, transparent 45%);
+  animation: bg-mesh-advanced 30s infinite cubic-bezier(0.65, 0, 0.35, 1) alternate;
+  pointer-events: none;
+}
+@keyframes bg-mesh-advanced {
+  0% { transform: rotate(0deg) scale(1) translate(0, 0); }
+  25% { transform: rotate(5deg) scale(1.03) translate(10px, -10px); }
+  50% { transform: rotate(-3deg) scale(1.06) translate(-15px, 5px); }
+  75% { transform: rotate(8deg) scale(1.02) translate(5px, 10px); }
+  100% { transform: rotate(12deg) scale(1.08) translate(-5px, -5px); }
+}
+
+/* ---------- 28. Smooth Scroll Snap for Hero ---------- */
+.hero-scroll-container {
+  scroll-snap-type: y proximity;
+}
+.hero-sticky-frame {
+  scroll-snap-align: start;
+}
+
+/* ---------- 29. Frosted Glass Contact Form ---------- */
+.contact__form-wrapper {
+  background: rgba(4, 22, 14, 0.4) !important;
+  backdrop-filter: blur(35px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(35px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+.form-group input,
+.form-group textarea {
+  background: rgba(2, 22, 14, 0.45) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  background: rgba(4, 30, 20, 0.6) !important;
+  border-color: rgba(52, 211, 153, 0.4) !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12), 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(-1px);
+}
+
+/* ---------- 30. Hover Glow Ring (Trending Neon Outline) ---------- */
+.program-card:hover,
+.stats__item:hover,
+.vm-card:hover,
+.news-card:hover {
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(52, 211, 153, 0.15),
+    0 0 40px rgba(16, 185, 129, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
