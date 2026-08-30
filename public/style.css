@@ -1413,3 +1413,329 @@ section {
   will-change: transform, opacity;
 }
 
+
+/* =============================================
+   TRENDING 2025/2026 EFFECTS & ANIMATIONS
+   ============================================= */
+
+/* ---------- 1. Animated Gradient Text Shimmer ---------- */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--clr-accent-500) 0%,
+    #fbbf24 25%,
+    var(--clr-accent-300) 50%,
+    #fbbf24 75%,
+    var(--clr-accent-500) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shimmer 3s linear infinite;
+}
+@keyframes gradient-shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ---------- 2. Aurora Glow Card Border ---------- */
+.aurora-card {
+  position: relative;
+  overflow: hidden;
+}
+.aurora-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--aurora-angle, 0deg),
+    transparent 0%,
+    var(--clr-accent-500) 10%,
+    #fbbf24 20%,
+    var(--clr-accent-300) 30%,
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  animation: aurora-rotate 4s linear infinite;
+}
+.aurora-card:hover::before {
+  opacity: 1;
+}
+.aurora-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: inherit;
+  z-index: -1;
+}
+@keyframes aurora-rotate {
+  0% { --aurora-angle: 0deg; }
+  100% { --aurora-angle: 360deg; }
+}
+/* Fallback: use transform rotation since @property isn't universal */
+.aurora-card::before {
+  animation: aurora-spin 4s linear infinite;
+}
+@keyframes aurora-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ---------- 3. Ripple Button Effect ---------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: ripple-expand 0.6s ease-out forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes ripple-expand {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* ---------- 4. Enhanced Scroll Reveal with Stagger ---------- */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-fade.visible {
+  opacity: 1;
+}
+.reveal-zoom {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.reveal-zoom.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.reveal-rotate {
+  opacity: 0;
+  transform: rotate(-5deg) translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.reveal-rotate.visible {
+  opacity: 1;
+  transform: rotate(0) translateY(0);
+}
+
+/* Smart stagger: each child delays proportionally */
+[data-stagger-reveal] > * {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-stagger-reveal].visible > *:nth-child(1) { transition-delay: 0.05s; }
+[data-stagger-reveal].visible > *:nth-child(2) { transition-delay: 0.1s; }
+[data-stagger-reveal].visible > *:nth-child(3) { transition-delay: 0.15s; }
+[data-stagger-reveal].visible > *:nth-child(4) { transition-delay: 0.2s; }
+[data-stagger-reveal].visible > *:nth-child(5) { transition-delay: 0.25s; }
+[data-stagger-reveal].visible > *:nth-child(6) { transition-delay: 0.3s; }
+[data-stagger-reveal].visible > *:nth-child(7) { transition-delay: 0.35s; }
+[data-stagger-reveal].visible > *:nth-child(8) { transition-delay: 0.4s; }
+[data-stagger-reveal].visible > *:nth-child(9) { transition-delay: 0.45s; }
+[data-stagger-reveal].visible > *:nth-child(10) { transition-delay: 0.5s; }
+[data-stagger-reveal].visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- 5. Clip-Path Image Reveal ---------- */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.clip-reveal.visible {
+  clip-path: inset(0 0 0 0);
+}
+.clip-reveal-left {
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.clip-reveal-left.visible {
+  clip-path: inset(0 0 0 0);
+}
+.clip-reveal-circle {
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.clip-reveal-circle.visible {
+  clip-path: circle(75% at 50% 50%);
+}
+
+/* ---------- 6. Page Entrance Cascade ---------- */
+.page-entrance {
+  opacity: 0;
+  animation: page-fade-in 0.8s ease forwards;
+}
+@keyframes page-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.header {
+  animation: header-slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
+}
+@keyframes header-slide-down {
+  0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------- 7. 3D Tilt Card Support ---------- */
+[data-tilt] {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+[data-tilt] > * {
+  transform: translateZ(20px);
+}
+[data-tilt]:hover {
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35), 0 0 30px var(--clr-accent-glow);
+}
+
+/* ---------- 8. Magnetic Button ---------- */
+.magnetic-btn {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* ---------- 9. Animated Counter Number ---------- */
+[data-count] {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 10. Text Scramble Reveal ---------- */
+[data-scramble] {
+  font-family: var(--ff-heading);
+}
+
+/* ---------- 11. SVG Wave Section Dividers ---------- */
+.wave-divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin: -1px 0;
+  pointer-events: none;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+  fill: var(--clr-bg-dark);
+}
+.wave-divider--flip svg {
+  transform: rotate(180deg);
+}
+.wave-divider--accent svg {
+  fill: var(--clr-primary-900);
+}
+
+/* ---------- 12. Floating Glow Orbs ---------- */
+.glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -5;
+  opacity: 0.06;
+  animation: orb-float 25s ease-in-out infinite alternate;
+}
+.glow-orb--1 {
+  width: 400px; height: 400px;
+  background: var(--clr-accent-500);
+  top: 10%; left: -5%;
+  animation-delay: 0s;
+}
+.glow-orb--2 {
+  width: 300px; height: 300px;
+  background: #fbbf24;
+  top: 60%; right: -5%;
+  animation-delay: -8s;
+}
+.glow-orb--3 {
+  width: 350px; height: 350px;
+  background: var(--clr-accent-300);
+  bottom: 5%; left: 30%;
+  animation-delay: -15s;
+}
+@keyframes orb-float {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(15px, -15px) scale(1.05); }
+}
+
+/* ---------- 13. Smooth Hover Lift for All Interactive Cards ---------- */
+.program-card,
+.club-card,
+.stats__item,
+.vm-card,
+.sl-card,
+.news-card,
+.facility-card,
+.recruiter-chip,
+.download-card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease !important;
+}
+
+/* ---------- 14. Typewriter Cursor Blink ---------- */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--clr-accent-500);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: cursor-blink 0.8s step-end infinite;
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ---------- 15. Pulse Dot Enhancement ---------- */
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ---------- Reduced Motion Override ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .text-shimmer { animation: none; -webkit-text-fill-color: var(--clr-accent-500); }
+  .aurora-card::before { animation: none; }
+  .ripple-effect { animation: none; }
+  .glow-orb { animation: none; }
+  .clip-reveal, .clip-reveal-left, .clip-reveal-circle { clip-path: none; }
+  .reveal-up, .reveal-fade, .reveal-zoom, .reveal-rotate { opacity: 1; transform: none; }
+  [data-stagger-reveal] > * { opacity: 1; transform: none; transition: none; }
+  .page-entrance { opacity: 1; animation: none; }
+  .header { animation: none; }
+}

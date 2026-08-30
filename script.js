@@ -722,3 +722,239 @@ document.addEventListener('DOMContentLoaded', () => {
     testTrack.addEventListener('mouseleave', () => interval = setInterval(nextTestimonial, 4500));
   }
 });
+
+
+/* =============================================
+   TRENDING 2025/2026 INTERACTION ENGINES
+   ============================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Skip all trending animations if user prefers reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // --- 1. Enhanced Scroll Reveal with IntersectionObserver & Stagger ---
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Don't unobserve stagger containers so children can animate
+        if (!entry.target.hasAttribute('data-stagger-reveal')) {
+          revealObserver.unobserve(entry.target);
+        }
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  // Observe all reveal elements
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-up, .reveal-fade, .reveal-zoom, .reveal-rotate, .clip-reveal, .clip-reveal-left, .clip-reveal-circle, [data-stagger-reveal]').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  // Auto-tag cards in grids as reveal-up for free scroll animations
+  document.querySelectorAll('.programs__grid, .faculty__grid, .clubs__grid, .facilities__grid, .stats__grid, .news__grid, .vm__grid, .student-life__grid, .recruiters-grid, .downloads__grid').forEach(grid => {
+    if (!grid.hasAttribute('data-stagger-reveal')) {
+      grid.setAttribute('data-stagger-reveal', '');
+      revealObserver.observe(grid);
+    }
+  });
+
+  // Auto-tag section titles as reveal-up
+  document.querySelectorAll('.section-title, .section-subtitle').forEach(el => {
+    if (!el.classList.contains('reveal') && !el.classList.contains('reveal-up')) {
+      el.classList.add('reveal-up');
+      revealObserver.observe(el);
+    }
+  });
+
+
+  // --- 2. 3D Card Tilt on Hover ---
+  document.querySelectorAll('.program-card, .stats__item, .vm-card, .news-card').forEach(card => {
+    card.setAttribute('data-tilt', '');
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
+
+
+  // --- 3. Magnetic Button Hover ---
+  document.querySelectorAll('.btn-primary, .btn-outline, .btn-more-outline').forEach(btn => {
+    btn.classList.add('magnetic-btn');
+
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) translateY(-2px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
+
+
+  // --- 4. Ripple Effect on Button Click ---
+  document.querySelectorAll('.btn, .btn-primary, .btn-outline, .btn-more-outline, .faculty__filter, .programs__tab').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple-effect';
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      this.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  });
+
+
+  // --- 5. Animated Number Counter ---
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        if (isNaN(target)) return;
+        
+        const suffix = el.getAttribute('data-suffix') || '';
+        const duration = 2000; // 2 seconds
+        const startTime = performance.now();
+        
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+        
+        function animate(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easedProgress = easeOutQuart(progress);
+          const current = Math.round(easedProgress * target);
+          el.textContent = current.toLocaleString() + suffix;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        }
+        
+        requestAnimationFrame(animate);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Auto-detect stat numbers and attach counter
+  document.querySelectorAll('.stats__number').forEach(el => {
+    const text = el.textContent.trim();
+    const match = text.match(/^([\d,]+)(.*)$/);
+    if (match) {
+      const num = parseInt(match[1].replace(/,/g, ''), 10);
+      const suffix = match[2] || '';
+      el.setAttribute('data-count', num);
+      el.setAttribute('data-suffix', suffix);
+      el.textContent = '0' + suffix;
+      counterObserver.observe(el);
+    }
+  });
+
+  // Also handle about__stat-number
+  document.querySelectorAll('.about__stat-number').forEach(el => {
+    const text = el.textContent.trim();
+    const match = text.match(/^([\d,]+)(.*)$/);
+    if (match) {
+      const num = parseInt(match[1].replace(/,/g, ''), 10);
+      const suffix = match[2] || '';
+      el.setAttribute('data-count', num);
+      el.setAttribute('data-suffix', suffix);
+      el.textContent = '0' + suffix;
+      counterObserver.observe(el);
+    }
+  });
+
+
+  // --- 6. Text Scramble Cipher Decode on Section Titles ---
+  const scrambleChars = '!<>-_\\/[]{}—=+*^?#_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  
+  function scrambleText(el) {
+    const originalText = el.getAttribute('data-scramble') || el.textContent;
+    el.setAttribute('data-scramble', originalText);
+    const length = originalText.length;
+    let iterations = 0;
+    const maxIterations = length * 3;
+
+    const interval = setInterval(() => {
+      el.textContent = originalText
+        .split('')
+        .map((char, index) => {
+          if (index < iterations / 3) return char;
+          if (char === ' ') return ' ';
+          return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        })
+        .join('');
+      
+      iterations++;
+      if (iterations > maxIterations) {
+        el.textContent = originalText;
+        clearInterval(interval);
+      }
+    }, 30);
+  }
+
+  const scrambleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        scrambleText(entry.target);
+        scrambleObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Auto-attach scramble to section titles
+  document.querySelectorAll('.section-title').forEach(el => {
+    el.setAttribute('data-scramble', el.textContent);
+    scrambleObserver.observe(el);
+  });
+
+
+  // --- 7. Floating Glow Orbs (Inject into DOM) ---
+  for (let i = 1; i <= 3; i++) {
+    const orb = document.createElement('div');
+    orb.className = `glow-orb glow-orb--${i}`;
+    orb.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(orb);
+  }
+
+
+  // --- 8. Smooth Parallax on Scroll for Background Elements ---
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        // Subtle parallax for glow orbs
+        document.querySelectorAll('.glow-orb').forEach((orb, i) => {
+          const speed = 0.02 + i * 0.01;
+          orb.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+
+  // --- 9. Page Entrance Animation ---
+  document.body.classList.add('page-entrance');
+
+});
