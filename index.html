@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIAL — Girideepam Institute of Advanced Learning | In Pursuit of Excellence</title>
+  <meta name="description" content="Girideepam Institute of Advanced Learning (GIAL) offers BBA, BCA, B.Com, B.Sc, M.Com, MSW and MBA programs. Affiliated to Mahatma Gandhi University, Kottayam. AICTE approved.">
+  <link rel="stylesheet" href="style.css">
+  <script src="programs_data.js"></script>
+</head>
+<body>
+  
+  <!-- Site-wide Constellation Particle Mesh -->
+  <canvas id="global-particle-canvas" class="global-particle-canvas"></canvas>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-bar__contact">
+          <a href="mailto:girideepamcollege@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            girideepamcollege@gmail.com
+          </a>
+          <a href="tel:+917592802949">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +91 7592802949
+          </a>
+        </div>
+        <div class="top-bar__social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="white"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="navbar__logo"><div class="navbar__logo-text"><span class="name">GIAL</span><span class="tagline">IN PURSUIT OF EXCELLENCE</span></div></a>
+        <div class="navbar__menu" id="navbar-menu">
+          <a href="#" class="active">Home</a>
+          <a href="#about">About</a>
+          <a href="#programs">Programs</a>
+          <a href="#faculty">Faculty</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <div class="navbar__mobile-actions">
+            <a href="https://axis.razorpay.com/?screen=sign_in" target="_blank" class="btn btn-outline btn-sm">Fee Payment</a>
+            <a href="#contact" class="btn btn-primary btn-sm">Apply Now</a>
+          </div>
+        </div>
+        <div class="navbar__actions">
+          <a href="https://axis.razorpay.com/?screen=sign_in" target="_blank" class="btn btn-outline btn-sm magnetic-btn">Fee Payment</a>
+          <a href="#contact" class="btn btn-primary btn-sm magnetic-btn">Apply Now</a>
+          <button class="navbar__toggle" id="navbar-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="menu-overlay" id="menu-overlay"></div>
+
+  <!-- ===== HERO: Sticky Scroll Storytelling Section (Full Unobstructed Campus -> Text Reveal -> Smooth Fade) ===== -->
+  <section class="hero-scroll-container" id="hero-scroll-container">
+    <div class="hero-sticky-frame" id="hero-sticky-frame">
+      <!-- 1. 100% Unobstructed Panoramic Campus Image -->
+      <div class="hero-panoramic-wrapper" id="hero-panoramic-wrapper">
+        <img 
+          src="https://girideepamcollege.ac.in/uploads/banner/62ecf897ded30Cover.jpeg" 
+          alt="Girideepam Institute of Advanced Learning Campus Panoramic View" 
+          id="hero-campus-photo"
+          class="hero-campus-photo"
+        >
+        <div class="hero-cinematic-vignette" id="hero-cinematic-vignette"></div>
+      </div>
+
+
+
+      <!-- 3. Scroll-Driven Revealed Typography & College Info -->
+      <div class="container hero-reveal-container" id="hero-reveal-container">
+        <div class="hero-reveal-content" id="hero-reveal-content">
+          <div class="hero-reveal-badge">
+            <span class="dot"></span>
+            Bethany Navajyothi Province &bull; Affiliated to MG University &bull; AICTE Approved
+          </div>
+          <h1 class="hero-reveal-title">Girideepam Institute of<br><span class="hero-title-highlight">Advanced Learning</span></h1>
+          <p class="hero-reveal-subtitle">In Pursuit of Excellence — Transforming students into socially committed, responsible, and spiritually inspired leaders equipped with wisdom, ethics, and experiential knowledge.</p>
+          <div class="hero-reveal-cta">
+            <a href="#programs" class="btn btn-primary magnetic-btn">Explore Academic Programs →</a>
+            <a href="#about" class="btn btn-outline magnetic-btn">Discover GIAL Legacy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT US (Official Institutional Profile & Emblem) ===== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__image-wrapper reveal-left">
+          <div class="about__emblem-card">
+            <img src="https://girideepamcollege.ac.in/uploads/aboutus/64845087ee87dgiallogo.jpg" alt="Girideepam Institute of Advanced Learning ISO 9001:2015 Emblem Logo" class="about__emblem-img">
+          </div>
+        </div>
+        <div class="about__content reveal-right">
+          <div class="about__tag-wrap">
+            <span class="about__label">ABOUT US</span>
+            <div class="about__divider-line">
+              <span class="line"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+          <h2 class="about__heading">GIRIDEEPAM INSTITUTE OF <span class="gradient-text">ADVANCED LEARNING</span></h2>
+          <p class="about__text">Girideepam Institute of Advanced Learning (GIAL) is the higher education segment of Girideepam group of Institutions. GIAL is intensively involved in its efforts to improve its profile by serving the society in different spheres imparting education through various community oriented courses at UG and PG level. GIAL School of Management Studies is approved by AICTE, New Delhi and affiliated to Mahatma Gandhi University, Kottayam. It is owned and managed by Bethany Navajyothi Province of the Order of Imitation of Christ (Bethany Ashram). The School of Management Studies is a milestone in its journey with its motto 'In Pursuit of Excellence'. Business Management is one of the most varied and demanding professions. GIAL is aware that the future of business and industry is based on human values and principles.</p>
+
+          <div class="about__actions">
+            <a href="about-gial.html" class="btn-more-outline">More</a>
+          </div>
+
+          <div class="about__stats" data-stagger style="margin-top: 2rem;">
+            <div class="about__stat reveal"><div class="about__stat-number" data-count="3640">0</div><div class="about__stat-label">Students Completed</div></div>
+            <div class="about__stat reveal"><div class="about__stat-number" data-count="45">0</div><div class="about__stat-label">Expert Faculty</div></div>
+            <div class="about__stat reveal"><div class="about__stat-number" data-count="12">0</div><div class="about__stat-label">Programs Offered</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEADERSHIP ===== -->
+  <section class="section" id="leadership" style="background:var(--clr-bg-dark)">
+    <div class="container">
+      <h2 class="section-title reveal">Our <span class="accent-text">Leadership</span></h2>
+      <p class="section-subtitle reveal">Guided by visionary leaders committed to academic excellence and holistic development.</p>
+      <div class="leadership__grid" data-stagger>
+        <div class="leader-card reveal tilt-card">
+          <div class="tilt-card__shine"></div>
+          
+          <div class="leader-card__info">
+            <h3>Director's Message</h3>
+            <p class="role">Director — GIAL</p>
+            <p>"Our institution stands as a beacon of hope and knowledge. We are committed to nurturing talent, fostering innovation, and building character. Every student who walks through our doors carries the potential to transform society."</p>
+          </div>
+        </div>
+        <div class="leader-card reveal tilt-card">
+          <div class="tilt-card__shine"></div>
+          
+          <div class="leader-card__info">
+            <h3>Principal's Message</h3>
+            <p class="role">Principal — GIAL</p>
+            <p>"At GIAL, we believe education is not just about acquiring knowledge but about building character. Our diverse academic programs, combined with a vibrant campus life, prepare students for the challenges of a rapidly evolving global landscape."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAMS ===== -->
+  <section class="programs section" id="programs">
+    <div class="container">
+      <h2 class="section-title reveal">Our <span class="accent-text">Programs</span></h2>
+      <p class="section-subtitle reveal">Choose from our diverse range of undergraduate and postgraduate programs designed to shape future leaders.</p>
+      <div class="programs__tabs reveal">
+        <button class="programs__tab active" data-filter="bachelors">Bachelors</button>
+        <button class="programs__tab" data-filter="masters">Masters</button>
+        <button class="programs__tab" data-filter="all">All Programs</button>
+      </div>
+      <div class="programs__grid" id="programs-grid" data-stagger>
+        <div class="program-card reveal tilt-card" data-category="bachelors" data-program-key="bba">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/bba.jpg" alt="BBA 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Bachelor of Business Administration</span>
+            <h3 class="program-card__title">BBA</h3>
+            <p class="program-card__desc">Develop managerial leadership, financial analytics, and strategic acumen.</p>
+            <div class="program-card__meta"><span>⏱ 3 Years</span><span>📋 +2 / Equiv.</span></div>
+            <a href="program.html?id=bba" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="bachelors" data-program-key="bca">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/bca.jpg" alt="BCA 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Bachelor of Computer Application</span>
+            <h3 class="program-card__title">BCA</h3>
+            <p class="program-card__desc">Master modern software engineering, cloud computing, and AI architectures.</p>
+            <div class="program-card__meta"><span>⏱ 3 Years</span><span>📋 +2 / Math/CS</span></div>
+            <a href="program.html?id=bca" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="bachelors" data-program-key="cyber">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/cyber.jpg" alt="Cyber Forensics 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Bachelor of Science</span>
+            <h3 class="program-card__title">B.Sc Cyber Forensics</h3>
+            <p class="program-card__desc">Learn digital evidence analysis, ethical hacking, and cybersecurity defense.</p>
+            <div class="program-card__meta"><span>⏱ 3 Years</span><span>📋 +2 Science</span></div>
+            <a href="program.html?id=cyber" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="bachelors" data-program-key="psychology">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/psychology.jpg" alt="Psychology 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Bachelor of Science</span>
+            <h3 class="program-card__title">B.Sc Psychology</h3>
+            <p class="program-card__desc">Explore cognitive neuroscience, counseling therapies, and human behavior.</p>
+            <div class="program-card__meta"><span>⏱ 3 Years</span><span>📋 +2 / Equiv.</span></div>
+            <a href="program.html?id=psychology" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="bachelors" data-program-key="bcom-acc">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/commerce.jpg" alt="B.Com Accounting 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Bachelor of Commerce</span>
+            <h3 class="program-card__title">B.Com Accounting</h3>
+            <p class="program-card__desc">Build professional expertise in corporate financial accounting and cost audit.</p>
+            <div class="program-card__meta"><span>⏱ 3 Years</span><span>📋 +2 Commerce</span></div>
+            <a href="program.html?id=bcom-acc" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="bachelors" data-program-key="bcom-fin">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/commerce.jpg" alt="B.Com Finance 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Bachelor of Commerce</span>
+            <h3 class="program-card__title">B.Com Finance & Taxation</h3>
+            <p class="program-card__desc">Specialized training in GST laws, corporate taxation, and wealth management.</p>
+            <div class="program-card__meta"><span>⏱ 3 Years</span><span>📋 +2 Commerce</span></div>
+            <a href="program.html?id=bcom-fin" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="bachelors" data-program-key="bcom-log">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/logistics.jpg" alt="B.Com Logistics 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Bachelor of Commerce</span>
+            <h3 class="program-card__title">B.Com Logistics</h3>
+            <p class="program-card__desc">Master global supply chain logistics, freight forwarding, and port operations.</p>
+            <div class="program-card__meta"><span>⏱ 3 Years</span><span>📋 +2 Commerce</span></div>
+            <a href="program.html?id=bcom-log" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="masters" data-program-key="msw">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/msw.jpg" alt="MSW 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Master of Social Work</span>
+            <h3 class="program-card__title">MSW</h3>
+            <p class="program-card__desc">Lead community development, clinical social psychiatry, and NGO initiatives.</p>
+            <div class="program-card__meta"><span>⏱ 2 Years</span><span>📋 Any Degree</span></div>
+            <a href="program.html?id=msw" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="masters" data-program-key="mcom-fin">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/commerce.jpg" alt="M.Com Finance 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Master of Commerce</span>
+            <h3 class="program-card__title">M.Com Finance & Taxation</h3>
+            <p class="program-card__desc">Advanced postgraduate mastery in fiscal policy, valuation, and capital markets.</p>
+            <div class="program-card__meta"><span>⏱ 2 Years</span><span>📋 B.Com / BBA</span></div>
+            <a href="program.html?id=mcom-fin" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="masters" data-program-key="mcom-mkt">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="images/programs/logistics.jpg" alt="M.Com Marketing 3D Render" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Master of Commerce</span>
+            <h3 class="program-card__title">M.Com Marketing & IB</h3>
+            <p class="program-card__desc">Master multinational market dynamics, brand management, and trade treaties.</p>
+            <div class="program-card__meta"><span>⏱ 2 Years</span><span>📋 B.Com / BBA</span></div>
+            <a href="program.html?id=mcom-mkt" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem; width: 100%;">View Program Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="program-card reveal tilt-card" data-category="masters" style="display:block">
+          <div class="tilt-card__shine"></div>
+          <div class="program-card__thumb-wrap">
+            <span class="hud-corner hud-corner--tl"></span>
+            <span class="hud-corner hud-corner--tr"></span>
+            <span class="hud-corner hud-corner--bl"></span>
+            <span class="hud-corner hud-corner--br"></span>
+            <div class="program-card__scanline"></div>
+            <img src="https://girideepamcollege.ac.in/uploads/banner/627b66c5cfbec3.jpg" alt="MBA B-School" class="program-card__img" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem 1.5rem 1.75rem;">
+            <span class="program-card__degree">Master of Business Administration</span>
+            <h3 class="program-card__title">MBA</h3>
+            <p class="program-card__desc">AICTE-approved MBA with premier corporate internships and high-tier placement track record.</p>
+            <div class="program-card__meta"><span>⏱ 2 Years</span><span>📋 Any Degree</span></div>
+            <a href="program.html?id=bba" class="btn btn-primary btn-sm" style="margin-top: 1rem; width: 100%;">View Management Curriculum →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS & CORPORATE RECRUITMENT PARTNERS ===== -->
+  <section class="stats section" id="placements">
+    <div class="container">
+      <div class="stats__header text-center" style="margin-bottom: 3rem;">
+        <span class="badge" style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(52, 211, 153, 0.4); color: #34d399; font-weight: 700; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem;">✦ Institutional Excellence & Careers ✦</span>
+        <h2 class="section-title" style="margin-top: 0.75rem;">Placement & <span class="accent-text">Corporate Network</span></h2>
+        <p class="section-subtitle">Empowering students with industry-aligned training, top MNC recruitment drives, and a thriving global alumni network.</p>
+      </div>
+
+      <!-- 4 Prominent Stat Metric Cards -->
+      <div class="stats__grid" data-stagger style="margin-bottom: 3rem;">
+        <div class="stats__item reveal tilt-card">
+          <div class="stats__icon">🎓</div>
+          <div class="stats__number" data-count="3640">0</div>
+          <div class="stats__label">Graduates Placed Globally</div>
+        </div>
+        <div class="stats__item reveal tilt-card">
+          <div class="stats__icon">🏢</div>
+          <div class="stats__number" data-count="50">0<span class="stats__suffix">+</span></div>
+          <div class="stats__label">Top Tier Recruiters</div>
+        </div>
+        <div class="stats__item reveal tilt-card">
+          <div class="stats__icon">📚</div>
+          <div class="stats__number" data-count="11">0</div>
+          <div class="stats__label">UG & PG Programs</div>
+        </div>
+        <div class="stats__item reveal tilt-card">
+          <div class="stats__icon">👨‍🏫</div>
+          <div class="stats__number" data-count="45">0<span class="stats__suffix">+</span></div>
+          <div class="stats__label">Expert Faculty Mentors</div>
+        </div>
+      </div>
+
+      <!-- Top Corporate Recruiters Grid -->
+      <div class="placement-partners-card reveal">
+        <div class="placement-partners-card__header">
+          <div>
+            <h3 style="color: #fff; font-size: 1.35rem; font-weight: 800; margin-bottom: 0.25rem;">Leading Corporate Recruitment Partners</h3>
+            <p style="color: #94a3b8; font-size: 0.875rem;">Annual campus placement drives and corporate internships for GIAL students.</p>
+          </div>
+          <span style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; font-weight: 700; font-size: 0.8rem; padding: 6px 14px; border-radius: 20px;">💼 Highest Package: 7.5 LPA</span>
+        </div>
+
+        <div class="recruiters-grid">
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">🏢</span>
+            <div class="recruiter-chip__info">
+              <h4>Deloitte</h4>
+              <p>Financial Advisory & Tax</p>
+            </div>
+          </div>
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">💻</span>
+            <div class="recruiter-chip__info">
+              <h4>TCS</h4>
+              <p>Enterprise AI & Cloud</p>
+            </div>
+          </div>
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">🏦</span>
+            <div class="recruiter-chip__info">
+              <h4>Federal Bank</h4>
+              <p>Banking Operations & PO</p>
+            </div>
+          </div>
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">💻</span>
+            <div class="recruiter-chip__info">
+              <h4>Infosys</h4>
+              <p>Software Architecture</p>
+            </div>
+          </div>
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">📊</span>
+            <div class="recruiter-chip__info">
+              <h4>KPMG</h4>
+              <p>Audit & Valuation</p>
+            </div>
+          </div>
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">🛡️</span>
+            <div class="recruiter-chip__info">
+              <h4>Wipro</h4>
+              <p>Data & Cyber Defense</p>
+            </div>
+          </div>
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">💼</span>
+            <div class="recruiter-chip__info">
+              <h4>Ernst & Young (EY)</h4>
+              <p>Global Tax & Strategy</p>
+            </div>
+          </div>
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">🏦</span>
+            <div class="recruiter-chip__info">
+              <h4>South Indian Bank</h4>
+              <p>Corporate Banking</p>
+            </div>
+          </div>
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">💻</span>
+            <div class="recruiter-chip__info">
+              <h4>Cognizant</h4>
+              <p>Digital Engineering</p>
+            </div>
+          </div>
+          <div class="recruiter-chip">
+            <span class="recruiter-chip__icon">🌍</span>
+            <div class="recruiter-chip__info">
+              <h4>Global Alumni Chapters</h4>
+              <p>Dubai • London • Singapore</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISION & MISSION ===== -->
+  <section class="vision-mission section" id="vision">
+    <div class="container">
+      <h2 class="section-title reveal">Our <span class="accent-text">Guiding Principles</span></h2>
+      <p class="section-subtitle reveal">Values that shape every aspect of our institution and academic philosophy.</p>
+      <div class="vm__grid" data-stagger>
+        <div class="vm-card reveal tilt-card"><div class="tilt-card__shine"></div><div class="vm-card__content"><h3 class="vm-card__title">Our Vision</h3><p class="vm-card__text">The promotion of high standards of holistic professional education in Pursuit of Excellence, catering to the needs of our students, for the peace and prosperity of our society.</p></div></div>
+        <div class="vm-card reveal tilt-card"><div class="tilt-card__shine"></div><div class="vm-card__content"><h3 class="vm-card__title">Our Mission</h3><p class="vm-card__text">To transform persons into socially committed, responsible and spiritually inspired citizens, well equipped with wisdom adequately balanced with ethics and to advance the profession of education.</p></div></div>
+        <div class="vm-card reveal tilt-card"><div class="tilt-card__shine"></div><div class="vm-card__content"><h3 class="vm-card__title">Our Objectives</h3><p class="vm-card__text">To harness best resources and develop ethical, entrepreneurial and socially responsible managers committed to the 'Pursuit of Excellence' through vibrant experiential learning.</p></div></div>
+        <div class="vm-card reveal tilt-card"><div class="tilt-card__shine"></div><div class="vm-card__content"><h3 class="vm-card__title">Green Campus</h3><p class="vm-card__text">GIAL is committed towards creating a culture of environment responsibility among its students. A green campus demonstrates commitment to ecological sustainability.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FACULTY ===== -->
+  <section class="faculty section" id="faculty">
+    <div class="container">
+      <h2 class="section-title reveal">Our <span class="accent-text">Faculty</span></h2>
+      <p class="section-subtitle reveal">Experienced educators dedicated to mentoring the next generation of leaders.</p>
+      <div class="faculty__filters reveal">
+        <button class="faculty__filter active" data-dept="all">All</button>
+        <button class="faculty__filter" data-dept="management">Management</button>
+        <button class="faculty__filter" data-dept="commerce">Commerce</button>
+        <button class="faculty__filter" data-dept="computer">Computer Science</button>
+        <button class="faculty__filter" data-dept="science">Science</button>
+      </div>
+      <div class="faculty__grid" id="faculty-grid" data-stagger>
+        <div class="flip-card reveal" data-dept="management"><div class="flip-card__inner"><div class="flip-card__front"><div class="flip-card__front-info"><h4>Dr. Rajesh Kumar</h4><p>HOD — Management</p></div></div><div class="flip-card__back"><h4>Dr. Rajesh Kumar</h4><p>Ph.D in Management. 15+ years of teaching and research experience in Strategic Management.</p><span class="flip-hint">Hover to flip back</span></div></div></div>
+        <div class="flip-card reveal" data-dept="commerce"><div class="flip-card__inner"><div class="flip-card__front"><div class="flip-card__front-info"><h4>Prof. Anitha Menon</h4><p>HOD — Commerce</p></div></div><div class="flip-card__back"><h4>Prof. Anitha Menon</h4><p>M.Com, NET. Specializes in Financial Accounting and Taxation. 12 years experience.</p><span class="flip-hint">Hover to flip back</span></div></div></div>
+        <div class="flip-card reveal" data-dept="computer"><div class="flip-card__inner"><div class="flip-card__front"><div class="flip-card__front-info"><h4>Mr. Arun Prasad</h4><p>HOD — Computer Science</p></div></div><div class="flip-card__back"><h4>Mr. Arun Prasad</h4><p>MCA, M.Phil. Expert in Software Engineering and Cyber Security. Certified Ethical Hacker.</p><span class="flip-hint">Hover to flip back</span></div></div></div>
+        <div class="flip-card reveal" data-dept="science"><div class="flip-card__inner"><div class="flip-card__front"><div class="flip-card__front-info"><h4>Dr. Meera Thomas</h4><p>HOD — Psychology</p></div></div><div class="flip-card__back"><h4>Dr. Meera Thomas</h4><p>Ph.D in Clinical Psychology. Published researcher in cognitive behavioral therapy. RCI registered.</p><span class="flip-hint">Hover to flip back</span></div></div></div>
+        <div class="flip-card reveal" data-dept="management"><div class="flip-card__inner"><div class="flip-card__front"><div class="flip-card__front-info"><h4>Prof. Suresh Nair</h4><p>Marketing & HR</p></div></div><div class="flip-card__back"><h4>Prof. Suresh Nair</h4><p>MBA, NET. Industry professional turned educator. 8 years corporate experience in FMCG marketing.</p><span class="flip-hint">Hover to flip back</span></div></div></div>
+        <div class="flip-card reveal" data-dept="commerce"><div class="flip-card__inner"><div class="flip-card__front"><div class="flip-card__front-info"><h4>Ms. Lekshmi Pillai</h4><p>Finance & Taxation</p></div></div><div class="flip-card__back"><h4>Ms. Lekshmi Pillai</h4><p>M.Com, CA Inter. Specializes in Goods and Services Tax and Corporate Finance.</p><span class="flip-hint">Hover to flip back</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FACILITIES ===== -->
+  <section class="facilities section" id="facilities">
+    <div class="container">
+      <h2 class="section-title reveal">World-Class <span class="accent-text">Facilities</span></h2>
+      <p class="section-subtitle reveal">Our campus offers modern infrastructure designed to support interactive and effective learning.</p>
+      <div class="facilities__grid" data-stagger>
+        <div class="facility-card reveal">
+          <img src="https://girideepamcollege.ac.in/uploads/about_us/facilities/6424084846e8cClass1.JPG" alt="Smart Classroom" loading="lazy">
+          <div class="facility-card__overlay"><h3 class="facility-card__title">Smart Classrooms</h3></div>
+        </div>
+        <div class="facility-card reveal">
+          <img src="https://girideepamcollege.ac.in/uploads/about_us/facilities/6424095ac0374Library1.JPG" alt="Digital Library" loading="lazy">
+          <div class="facility-card__overlay"><h3 class="facility-card__title">Digital Library</h3></div>
+        </div>
+        <div class="facility-card reveal">
+          <img src="https://girideepamcollege.ac.in/uploads/about_us/facilities/64240723762e6Cafetria.JPG" alt="Cafeteria" loading="lazy">
+          <div class="facility-card__overlay"><h3 class="facility-card__title">Campus Cafeteria</h3></div>
+        </div>
+        <div class="facility-card reveal">
+          <img src="https://girideepamcollege.ac.in/uploads/about_us/facilities/6424090f2cf52CompuuterLab.JPG" alt="Computer Lab" loading="lazy">
+          <div class="facility-card__overlay"><h3 class="facility-card__title">High-Tech Computer Lab</h3></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <h2 class="section-title reveal">Photo <span class="accent-text">Gallery</span></h2>
+      <p class="section-subtitle reveal">Glimpses of campus life, events, and academic activities at GIAL.</p>
+      <div class="gallery__filters reveal">
+        <button class="gallery__filter active" data-gal="all">All</button>
+        <button class="gallery__filter" data-gal="campus">Campus</button>
+        <button class="gallery__filter" data-gal="events">Events</button>
+        <button class="gallery__filter" data-gal="academic">Academics</button>
+      </div>
+      <div class="gallery__grid" id="gallery-grid" data-stagger>
+        <div class="gallery__item reveal" data-gal="campus" data-caption="GIAL Convocation Ceremony">
+          <img src="https://girideepamcollege.ac.in/uploads/banner/6660109be86f6CONVOCATION.jpg" alt="Convocation" loading="lazy">
+          <div class="gallery__item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        </div>
+        <div class="gallery__item reveal" data-gal="events" data-caption="BCA 10th Anniversary Celebrations">
+          <img src="https://girideepamcollege.ac.in/uploads/banner/673182c587e28bca10thanniversary.jpg" alt="BCA Anniversary" loading="lazy">
+          <div class="gallery__item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        </div>
+        <div class="gallery__item reveal" data-gal="events" data-caption="GIAL Annual Alumni Meet">
+          <img src="https://girideepamcollege.ac.in/uploads/blog_album/650abc3b5919aAlumnimeet.jpg" alt="Alumni Meet" loading="lazy">
+          <div class="gallery__item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        </div>
+        <div class="gallery__item reveal" data-gal="events" data-caption="Annual Sports Meet">
+          <img src="https://girideepamcollege.ac.in/uploads/blog_album/6511a11eaca2bSports.jpg" alt="Sports Meet" loading="lazy">
+          <div class="gallery__item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        </div>
+        <div class="gallery__item reveal" data-gal="campus" data-caption="GIAL Campus Fest">
+          <img src="https://girideepamcollege.ac.in/uploads/photo_album/65f280ec21834DPV_8547.JPG" alt="Campus Fest" loading="lazy">
+          <div class="gallery__item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        </div>
+        <div class="gallery__item reveal" data-gal="academic" data-caption="Academic & Cultural Summit">
+          <img src="https://girideepamcollege.ac.in/uploads/photo_album/65f282aaf0108DPV_6225.JPG" alt="Summit" loading="lazy">
+          <div class="gallery__item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title reveal">What Our <span class="accent-text">Alumni Say</span></h2>
+      <p class="section-subtitle reveal">Hear from those who have walked these halls and gone on to achieve great things.</p>
+      <div class="testimonials__slider" id="testimonial-slider">
+        <div class="testimonials__track" id="testimonial-track">
+          <div class="testimonial-card"><div class="testimonial-card__inner"><p class="testimonial-card__text">GIAL gave me not just a degree but a vision for life. The faculty's personal attention and the campus environment shaped me into a confident professional. I owe my career at Federal Bank to the foundation GIAL built.</p><p class="testimonial-card__author">Aravind Krishnan</p><p class="testimonial-card__role">BBA 2016 — Manager, Federal Bank</p></div></div>
+          <div class="testimonial-card"><div class="testimonial-card__inner"><p class="testimonial-card__text">The BCA program at GIAL was far beyond what I expected. The practical exposure, lab facilities, and placement support helped me land my first job at TCS right out of college. Forever grateful!</p><p class="testimonial-card__author">Sneha Mohan</p><p class="testimonial-card__role">BCA 2018 — Software Engineer, TCS</p></div></div>
+          <div class="testimonial-card"><div class="testimonial-card__inner"><p class="testimonial-card__text">Pursuing MSW at GIAL opened doors to community development work I never imagined possible. The field visits, hands-on projects, and supportive mentors made all the difference in my career.</p><p class="testimonial-card__author">Fr. Thomas Mathew</p><p class="testimonial-card__role">MSW 2019 — Social Worker, Caritas India</p></div></div>
+          <div class="testimonial-card"><div class="testimonial-card__inner"><p class="testimonial-card__text">The M.Com program equipped me with analytical skills and financial expertise that I use every single day in my auditing career. GIAL's emphasis on ethics and values set me apart from other candidates.</p><p class="testimonial-card__author">Divya Nair</p><p class="testimonial-card__role">M.Com 2020 — Audit Associate, Deloitte</p></div></div>
+        </div>
+      </div>
+      <div class="testimonials__dots" id="testimonial-dots"></div>
+    </div>
+  </section>
+
+  <!-- ===== CLUBS & ASSOCIATIONS ===== -->
+  <section class="clubs section" id="clubs">
+    <div class="container">
+      <h2 class="section-title reveal">Clubs & <span class="accent-text">Associations</span></h2>
+      <p class="section-subtitle reveal">Explore your passions beyond the classroom through our vibrant student clubs.</p>
+      <div class="clubs__grid" data-stagger>
+        <div class="club-card reveal tilt-card">
+          <div class="club-card__thumb-wrap">
+            <img src="images/clubs/nature.jpg" alt="Nature Club" class="club-card__img" loading="lazy">
+            <div class="club-card__overlay"></div>
+            <span class="club-card__badge">🌱 Eco Wing</span>
+          </div>
+          <div class="club-card__content">
+            <h4 class="club-card__name">Nature Club</h4>
+            <p class="club-card__desc">Environmental advocacy, sapling plantation, sustainable campus initiatives, and nature conservation treks.</p>
+          </div>
+        </div>
+
+        <div class="club-card reveal tilt-card">
+          <div class="club-card__thumb-wrap">
+            <img src="images/clubs/photography.jpg" alt="Photography Club" class="club-card__img" loading="lazy">
+            <div class="club-card__overlay"></div>
+            <span class="club-card__badge">📷 Visual Arts</span>
+          </div>
+          <div class="club-card__content">
+            <h4 class="club-card__name">Photography Club</h4>
+            <p class="club-card__desc">Visual storytelling, campus photo-walks, digital editing workshops, and annual intra-college exhibitions.</p>
+          </div>
+        </div>
+
+        <div class="club-card reveal tilt-card">
+          <div class="club-card__thumb-wrap">
+            <img src="images/clubs/music.jpg" alt="Music Club" class="club-card__img" loading="lazy">
+            <div class="club-card__overlay"></div>
+            <span class="club-card__badge">🎵 Band & Vocals</span>
+          </div>
+          <div class="club-card__content">
+            <h4 class="club-card__name">Music Club</h4>
+            <p class="club-card__desc">Acoustic jamming sessions, college choir, instrumental training, and inter-collegiate music fests.</p>
+          </div>
+        </div>
+
+        <div class="club-card reveal tilt-card">
+          <div class="club-card__thumb-wrap">
+            <img src="images/clubs/dance.jpg" alt="Dance Club" class="club-card__img" loading="lazy">
+            <div class="club-card__overlay"></div>
+            <span class="club-card__badge">💃 Performance</span>
+          </div>
+          <div class="club-card__content">
+            <h4 class="club-card__name">Dance Club</h4>
+            <p class="club-card__desc">Contemporary choreography, classical Indian dance forms, energetic flash mobs, and cultural fests.</p>
+          </div>
+        </div>
+
+        <div class="club-card reveal tilt-card">
+          <div class="club-card__thumb-wrap">
+            <img src="images/clubs/yoga.jpg" alt="Yoga Club" class="club-card__img" loading="lazy">
+            <div class="club-card__overlay"></div>
+            <span class="club-card__badge">🧘 Wellness</span>
+          </div>
+          <div class="club-card__content">
+            <h4 class="club-card__name">Yoga & Wellness</h4>
+            <p class="club-card__desc">Holistic mental wellness, guided meditation, mindfulness practices, and annual International Yoga Day sessions.</p>
+          </div>
+        </div>
+
+        <div class="club-card reveal tilt-card">
+          <div class="club-card__thumb-wrap">
+            <img src="images/clubs/art.jpg" alt="Art and Design" class="club-card__img" loading="lazy">
+            <div class="club-card__overlay"></div>
+            <span class="club-card__badge">🎨 Fine Arts</span>
+          </div>
+          <div class="club-card__content">
+            <h4 class="club-card__name">Art & Design</h4>
+            <p class="club-card__desc">Digital illustration, canvas painting, craft making, and creative campus decoration projects.</p>
+          </div>
+        </div>
+
+        <div class="club-card reveal tilt-card">
+          <div class="club-card__thumb-wrap">
+            <img src="images/clubs/chess.jpg" alt="Chess Club" class="club-card__img" loading="lazy">
+            <div class="club-card__overlay"></div>
+            <span class="club-card__badge">♟️ Mind Sport</span>
+          </div>
+          <div class="club-card__content">
+            <h4 class="club-card__name">Chess Club</h4>
+            <p class="club-card__desc">Tactical problem solving, blitz tournaments, grandmaster strategy analysis, and inter-college championships.</p>
+          </div>
+        </div>
+
+        <div class="club-card reveal tilt-card">
+          <div class="club-card__thumb-wrap">
+            <img src="images/clubs/entrepreneurship.jpg" alt="Entrepreneurship Development Club" class="club-card__img" loading="lazy">
+            <div class="club-card__overlay"></div>
+            <span class="club-card__badge">🚀 Incubation</span>
+          </div>
+          <div class="club-card__content">
+            <h4 class="club-card__name">Entrepreneurship Cell</h4>
+            <p class="club-card__desc">Startup ideation bootcamps, investor pitch sessions, business model generation, and industry leadership talks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STUDENT LIFE ===== -->
+  <section class="student-life section">
+    <div class="container">
+      <h2 class="section-title reveal">Life at <span class="accent-text">GIAL</span></h2>
+      <p class="section-subtitle reveal">A kaleidoscope of fun, learning, and practical exposure that shapes future leaders.</p>
+      <div class="student-life__grid" data-stagger>
+        <div class="sl-card reveal tilt-card"><div class="tilt-card__shine"></div><div class="sl-card__content"><h3 class="sl-card__title">Student Life</h3><p class="sl-card__text">Life of students at GIAL is a kaleidoscope of fun, learning and practical exposure.</p></div></div>
+        <div class="sl-card reveal tilt-card"><div class="tilt-card__shine"></div><div class="sl-card__content"><h3 class="sl-card__title">Infrastructure</h3><p class="sl-card__text">The aesthetically designed institute offers world class infrastructure equipped with modern technologies.</p></div></div>
+        <div class="sl-card reveal tilt-card"><div class="tilt-card__shine"></div><div class="sl-card__content"><h3 class="sl-card__title">Co-Curricular</h3><p class="sl-card__text">Students participate actively in various events — academics and non-academics alike.</p></div></div>
+        <div class="sl-card reveal tilt-card"><div class="tilt-card__shine"></div><div class="sl-card__content"><h3 class="sl-card__title">NSS Unit</h3><p class="sl-card__text">Organizes community service, blood donation camps, environmental awareness drives, and rural development.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWS & CAMPUS EVENTS ===== -->
+  <section class="news section" id="news">
+    <div class="container">
+      <h2 class="section-title reveal">News &amp; <span class="accent-text">Campus Events</span></h2>
+      <p class="section-subtitle reveal">Stay connected with academic achievements, technical fests, and campus announcements.</p>
+      <div class="news__grid" data-stagger>
+        <div class="news-card reveal tilt-card">
+          <div class="news-card__image">
+            <img src="https://girideepamcollege.ac.in/uploads/banner/62ecf897ded30Cover.jpeg" alt="National Cyber Summit" loading="lazy">
+            <span class="news-card__date">AUG 2026</span>
+          </div>
+          <div class="news-card__body">
+            <h3 class="news-card__title">National Cyber Forensics &amp; Digital Defense Conclave</h3>
+            <p class="news-card__excerpt">Department of Computer Applications &amp; Cyber Forensics hosts state-level workshop on ethical penetration testing and AI threat mitigation.</p>
+            <a href="program.html?id=cyber" class="news-card__link">Read Details →</a>
+          </div>
+        </div>
+
+        <div class="news-card reveal tilt-card">
+          <div class="news-card__image">
+            <img src="https://girideepamcollege.ac.in/uploads/banner/627b66c5cfbec3.jpg" alt="Beth-Fest Management Meet" loading="lazy">
+            <span class="news-card__date">SEP 2026</span>
+          </div>
+          <div class="news-card__body">
+            <h3 class="news-card__title">Beth-Fest Inter-Collegiate Management &amp; Commerce Meet</h3>
+            <p class="news-card__excerpt">Annual fest gathering over 40 colleges across South India for business strategy simulations, mock stock, and brand launches.</p>
+            <a href="program.html?id=bba" class="news-card__link">Read Details →</a>
+          </div>
+        </div>
+
+        <div class="news-card reveal tilt-card">
+          <div class="news-card__image">
+            <img src="https://girideepamcollege.ac.in/uploads/about_us/facilities/6424095ac0374Library1.JPG" alt="Mental Health & Psychology Seminar" loading="lazy">
+            <span class="news-card__date">OCT 2026</span>
+          </div>
+          <div class="news-card__body">
+            <h3 class="news-card__title">Community Mental Health &amp; Clinical Psychology Seminar</h3>
+            <p class="news-card__excerpt">Department of Psychology and MSW host community mental health awareness drive and counseling outreach program.</p>
+            <a href="program.html?id=psychology" class="news-card__link">Read Details →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="contact__grid">
+        <div class="contact__info reveal-left">
+          <span class="about__label">Get In Touch</span>
+          <h2 class="section-title" style="text-align:left">Ready to Start Your <span class="accent-text">Journey?</span></h2>
+          <p class="about__text">Join GIAL and be part of an institution that shapes future leaders with wisdom, ethics, and excellence.</p>
+          <div class="contact__item"><div class="contact__item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="contact__item-content"><h4>Address</h4><p>Girideepam Institute of Advanced Learning,<br>Kottayam, Kerala, India</p></div></div>
+          <div class="contact__item"><div class="contact__item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="contact__item-content"><h4>Email</h4><p><a href="mailto:girideepamcollege@gmail.com">girideepamcollege@gmail.com</a></p></div></div>
+          <div class="contact__item"><div class="contact__item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="contact__item-content"><h4>Phone</h4><p><a href="tel:+917592802949">+91 7592802949</a></p></div></div>
+          <div style="margin-top:var(--space-lg);border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--clr-bg-glass-border)">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.5!2d76.52!3d9.59!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzUnMjQuMCJOIDc2wrAzMScxMi4wIkU!5e0!3m2!1sen!2sin!4v1" width="100%" height="200" style="border:0;filter:invert(90%) hue-rotate(180deg)" allowfullscreen="" loading="lazy" title="GIAL Location"></iframe>
+          </div>
+        </div>
+        <div class="contact__form-wrapper reveal-right">
+          <h3 class="contact__form-title">Quick Contact</h3>
+          <form id="contact-form">
+            <div class="form-row"><div class="form-group"><input type="text" placeholder="First Name" required id="contact-fname"></div><div class="form-group"><input type="text" placeholder="Last Name" id="contact-lname"></div></div>
+            <div class="form-row"><div class="form-group"><input type="email" placeholder="Email Address" required id="contact-email"></div><div class="form-group"><input type="tel" placeholder="Phone Number" id="contact-phone"></div></div>
+            <div class="form-group"><textarea placeholder="Your Message" required id="contact-message"></textarea></div>
+            <button type="submit" class="btn btn-primary magnetic-btn" style="width:100%" id="contact-submit"><span class="btn-text">Send Message →</span><span class="btn-spinner"></span></button>
+          </form>
+          <div class="form-success" id="form-success"><div class="form-success__icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3>Message Sent!</h3><p style="color:var(--clr-text-secondary);margin-top:var(--space-sm)">Thank you for reaching out. We'll get back to you soon.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="section" style="background:var(--clr-bg-dark);padding-block:0">
+    <div class="container newsletter">
+      <div class="newsletter__inner reveal-scale">
+        <h2 class="section-title">Stay <span class="accent-text">Updated</span></h2>
+        <p class="section-subtitle" style="margin-bottom:0">Subscribe to our newsletter for the latest news, events, and admissions updates.</p>
+        <form class="newsletter__form" id="newsletter-form">
+          <input type="email" placeholder="Enter your email address" required id="newsletter-email">
+          <button type="submit" class="btn btn-primary magnetic-btn"><span class="btn-text">Subscribe</span><span class="btn-spinner"></span></button>
+        </form>
+        <p id="newsletter-msg" style="font-size:var(--fs-xs);color:var(--clr-accent-500);margin-top:var(--space-sm);min-height:1.5em"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="#" class="navbar__logo"><div class="navbar__logo-text"><span class="name" style="font-size:1.4rem">GIAL</span><span class="tagline">IN PURSUIT OF EXCELLENCE</span></div></a>
+          <p class="footer__about-text">The Congregation of the Order of the Imitation of Christ (OIC), also known as Bethany Ashram, was founded by the late Archbishop Mar Ivanios on 15th August 1919. GIAL continues this legacy of holistic education, transforming lives since 2012.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="white"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
+          </div>
+        </div>
+        <div><h4 class="footer__heading">Quick Links</h4><ul class="footer__links"><li><a href="about-gial.html">About GIAL &amp; Province</a></li><li><a href="#programs">Programs</a></li><li><a href="#faculty">Faculty</a></li><li><a href="#facilities">Campus Facilities</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+        <div><h4 class="footer__heading">Programs</h4><ul class="footer__links"><li><a href="program.html?id=bba">BBA</a></li><li><a href="program.html?id=bca">BCA</a></li><li><a href="program.html?id=cyber">B.Sc Cyber Forensics</a></li><li><a href="program.html?id=bcom-fin">B.Com Finance &amp; Taxation</a></li><li><a href="program.html?id=psychology">B.Sc Psychology</a></li><li><a href="program.html?id=bcom-log">B.Com Logistics</a></li><li><a href="program.html?id=msw">MSW</a></li><li><a href="program.html?id=mcom-fin">M.Com Finance</a></li></ul></div>
+        <div>
+          <h4 class="footer__heading">Contact Info</h4>
+          <div class="footer__contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><p>Girideepam Institute of Advanced Learning, Kottayam, Kerala, India</p></div>
+          <div class="footer__contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><p>+91 7592802949</p></div>
+          <div class="footer__contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><p>girideepamcollege@gmail.com</p></div>
+        </div>
+      </div>
+      <div class="footer__bottom"><p>© 2024 Girideepam Institute of Advanced Learning. All rights reserved. | Managed by Bethany Navajyothi Province</p></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg></button>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightbox-close">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev">‹</button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightbox-next">›</button>
+    <img class="lightbox__img" id="lightbox-img" src="" alt="">
+    <p class="lightbox__caption" id="lightbox-caption"></p>
+  </div>
+
+  <!-- Program Details Modal -->
+  <div class="modal" id="program-modal">
+    <div class="modal__dialog">
+      <button class="modal__close" id="modal-close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      <div class="modal__content">
+        <h2 class="modal__title" id="modal-title">Program Title</h2>
+        <div class="modal__meta" id="modal-meta">
+          <p id="modal-duration"><strong>Duration:</strong> </p>
+          <p id="modal-eligibility"><strong>Eligibility:</strong> </p>
+        </div>
+        <div class="modal__body" id="modal-desc">
+          Program description goes here.
+        </div>
+        
+        <div class="modal__faculty-section">
+          <h3 class="modal__subtitle">Course Faculty</h3>
+          <div class="modal__faculty-list" id="modal-faculty-list">
+            <!-- Faculty injected via JS -->
+          </div>
+        </div>
+
+        <div class="modal__career" id="modal-career">
+          <strong>Career Prospects:</strong>
+        </div>
+        <div class="modal__actions">
+          <a href="#contact" class="btn btn-primary magnetic-btn" onclick="document.getElementById('program-modal').classList.remove('active'); document.body.style.overflow=''">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Faculty Profile Details Modal -->
+  <div class="faculty-modal-overlay" id="faculty-profile-modal" aria-hidden="true">
+    <div class="faculty-modal" id="faculty-modal-card">
+      <button class="faculty-modal__close" id="faculty-modal-close" aria-label="Close Profile">✕</button>
+      
+      <div class="faculty-modal__header">
+        <div class="faculty-modal__avatar-container">
+          <div class="faculty-modal__avatar-wrap">
+            <img src="" alt="Faculty Profile Photo" class="faculty-modal__avatar" id="modal-fac-img">
+          </div>
+        </div>
+        <div>
+          <h2 class="faculty-modal__name" id="modal-fac-name">Faculty Name</h2>
+          <div class="faculty-modal__designation-badge" id="modal-fac-designation">Assistant Professor</div>
+          <div class="faculty-modal__dept" id="modal-fac-dept">Department of Computer Applications</div>
+        </div>
+      </div>
+
+      <div class="faculty-modal__info-grid">
+        <div class="faculty-modal__info-item">
+          <div class="faculty-modal__info-label">Qualification</div>
+          <div class="faculty-modal__info-val" id="modal-fac-edu">MCA</div>
+        </div>
+        <div class="faculty-modal__info-item">
+          <div class="faculty-modal__info-label">Area of Specialization</div>
+          <div class="faculty-modal__info-val" id="modal-fac-area">Computer Science</div>
+        </div>
+        <div class="faculty-modal__info-item">
+          <div class="faculty-modal__info-label">Phone Number</div>
+          <div class="faculty-modal__info-val" id="modal-fac-phone">+91 7592802949</div>
+        </div>
+        <div class="faculty-modal__info-item">
+          <div class="faculty-modal__info-label">Email Address</div>
+          <div class="faculty-modal__info-val" id="modal-fac-email">girideepamcollege@gmail.com</div>
+        </div>
+      </div>
+
+      <div class="faculty-modal__bio-section" id="modal-fac-bio-sec">
+        <div class="faculty-modal__bio-title">About Faculty</div>
+        <div class="faculty-modal__bio-text" id="modal-fac-bio">
+          Faculty details.
+        </div>
+      </div>
+
+      <div class="faculty-modal__actions">
+        <a href="tel:+917592802949" class="btn btn-outline" id="modal-fac-call-btn">Call Office</a>
+        <a href="mailto:girideepamcollege@gmail.com" class="btn btn-primary" id="modal-fac-email-btn">Send Email</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Ergonomic Bottom Action Bar (<= 768px) -->
+  <aside class="mobile-action-bar" aria-label="Quick Mobile Actions">
+    <a href="tel:+917592802949" class="mobile-action-bar__btn" aria-label="Call Admissions">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span>Call Us</span>
+    </a>
+    <a href="https://axis.razorpay.com/?screen=sign_in" target="_blank" class="mobile-action-bar__btn" aria-label="Fee Payment Portal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      <span>Fee Portal</span>
+    </a>
+    <a href="#contact" class="mobile-action-bar__btn mobile-action-bar__btn--primary" aria-label="Apply for Admission">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      <span>Apply Now</span>
+    </a>
+    <a href="#contact" class="mobile-action-bar__btn" aria-label="Campus Address & Map">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Location</span>
+    </a>
+  </aside>
+
+  <script src="programs_data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
