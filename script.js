@@ -417,15 +417,21 @@ document.addEventListener('DOMContentLoaded', () => {
       mouse.y = null;
     });
 
+    const colors = ['#f59e0b', '#10b981', '#3b82f6', '#22c55e', '#a855f7', '#38bdf8', '#fb923c'];
+    const emojis = ['💼', '💻', '🛡️', '🧠', '📊', '✈️', '🤝'];
+
     const count = Math.min(125, Math.max(70, Math.floor((width * height) / 11000)));
     for (let i = 0; i < count; i++) {
+      const isEmoji = Math.random() > 0.85; // 15% chance to be an emoji
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.9,
         vy: (Math.random() - 0.5) * 0.9,
-        size: Math.random() * 2.4 + 1.2,
-        color: Math.random() > 0.25 ? '#10b981' : '#f59e0b'
+        size: isEmoji ? Math.random() * 10 + 14 : Math.random() * 2.4 + 1.2,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        type: isEmoji ? 'emoji' : 'dot',
+        emoji: isEmoji ? emojis[Math.floor(Math.random() * emojis.length)] : null
       });
     }
 
@@ -461,14 +467,19 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
         
-        // Draw Glowing Particle Node
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.shadowColor = p.color;
-        ctx.shadowBlur = 8;
-        ctx.fill();
-        ctx.shadowBlur = 0;
+        if (p.type === 'emoji') {
+          ctx.font = `${p.size}px Arial`;
+          ctx.fillText(p.emoji, p.x - p.size/2, p.y + p.size/2);
+        } else {
+          // Draw Glowing Particle Node
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.shadowColor = p.color;
+          ctx.shadowBlur = 8;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
         
         // Inter-particle Connecting Constellation Lines
         for (let j = i + 1; j < particles.length; j++) {
@@ -543,7 +554,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target.tagName === 'A' || e.target.closest('a')) return;
       const key = card.getAttribute('data-program-key');
       if (key) {
-        window.open(`program.html?id=${key}`, '_blank');
+        window.location.href = `program.html?id=${key}`;
       }
     });
   });
