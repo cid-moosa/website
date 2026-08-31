@@ -178,7 +178,7 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
       setSelectedFaculty(null);
       setIsFacultyClosing(false);
       setActiveCardId(null);
-    }, 830);
+    }, 580);
   };
 
   // Keyboard accessibility
@@ -927,10 +927,10 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
               <X size={22} className="stroke-[2.5] group-hover:scale-110 transition-transform" />
             </button>
 
-            {/* Profile Header with 3D Avatar Flip */}
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 pb-6 border-b border-[var(--clr-border)] relative z-10 animate-stagger-flow">
+            {/* Profile Header */}
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 pb-6 border-b border-[var(--clr-border)] relative z-10">
               <div
-                className="w-28 h-28 rounded-2xl p-1 shrink-0 relative overflow-hidden shadow-md animate-3d-avatar-flip"
+                className="w-28 h-28 rounded-2xl p-1 shrink-0 relative overflow-hidden shadow-md"
                 style={{
                   background: `linear-gradient(135deg, ${theme.primary}, ${theme.secondary})`,
                 }}
@@ -970,9 +970,9 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
               </div>
             </div>
 
-            {/* Biography with Staggered 3D Depth Flow */}
+            {/* Biography */}
             {selectedFaculty.bio && (
-              <div className="mb-8 relative z-10 animate-stagger-flow">
+              <div className="mb-8 relative z-10">
                 <h4 className="text-xs font-bold text-black dark:text-gray-400 uppercase tracking-wider mb-2">
                   Academic Biography & Credentials
                 </h4>
@@ -983,7 +983,7 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
             )}
 
             {/* Contact Details */}
-            <div className="flex flex-wrap gap-4 pt-4 border-t border-[var(--clr-border)] relative z-10 animate-stagger-flow">
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-[var(--clr-border)] relative z-10">
               {selectedFaculty.phone && (
                 <a
                   href={`tel:${selectedFaculty.phone}`}
