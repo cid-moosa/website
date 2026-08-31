@@ -85,18 +85,7 @@ export function Header() {
   return (
     <header className="fixed top-3 sm:top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
       {/* ─── Minimal macOS Liquid Glass Dock ─── */}
-      <div
-        className="pointer-events-auto rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 flex items-center gap-1 sm:gap-1.5 transition-all duration-300 ease-out border shadow-[0_15px_45px_rgba(0,0,0,0.18)]"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.1) 100%)",
-          backdropFilter: "blur(24px) saturate(220%) contrast(108%)",
-          WebkitBackdropFilter: "blur(24px) saturate(220%) contrast(108%)",
-          border: "1px solid rgba(255, 255, 255, 0.65)",
-          boxShadow:
-            "inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.9), 0 20px 50px rgba(0, 0, 0, 0.16)",
-        }}
-      >
+      <div className="mac-dock-tray pointer-events-auto rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 flex items-center gap-1 sm:gap-1.5 transition-all duration-300 ease-out">
         {/* Monogram Finder Icon */}
         <Link
           href="/"
@@ -107,7 +96,7 @@ export function Header() {
         </Link>
 
         {/* Dock Vertical Divider */}
-        <div className="h-6 w-px bg-black/15 dark:bg-white/20 mx-0.5 sm:mx-1" />
+        <div className="h-6 w-px bg-black/10 dark:bg-emerald-400/20 mx-0.5 sm:mx-1" />
 
         {/* Minimal macOS Dock Apps Grid */}
         <nav className="hidden md:flex items-center gap-1">
@@ -129,12 +118,12 @@ export function Header() {
                   href={item.href}
                   className={`relative flex flex-col items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl transition-all duration-200 origin-bottom ${
                     isHovered
-                      ? "scale-130 -translate-y-2 bg-white/60 dark:bg-white/25 text-emerald-600 dark:text-emerald-400 shadow-lg ring-1 ring-white/80 dark:ring-white/30"
+                      ? "scale-130 -translate-y-2 bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 shadow-lg ring-1 ring-emerald-400/40"
                       : isNeighbor
-                      ? "scale-112 -translate-y-0.5 text-black dark:text-white bg-white/20 dark:bg-white/10"
+                      ? "scale-112 -translate-y-0.5 text-black dark:text-gray-100 bg-black/5 dark:bg-emerald-500/10"
                       : isActive
-                      ? "bg-white/35 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
-                      : "text-black/85 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-white/15"
+                      ? "bg-emerald-500/25 text-emerald-800 dark:text-emerald-400 font-bold"
+                      : "text-black/80 dark:text-gray-200 hover:bg-emerald-500/15"
                   }`}
                   aria-label={item.label}
                 >
@@ -148,7 +137,7 @@ export function Header() {
 
                 {/* macOS Floating Tooltip Pill */}
                 {isHovered && !activeDropdown && (
-                  <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-black/80 text-white text-[10px] font-bold tracking-wide pointer-events-none whitespace-nowrap shadow-md animate-in fade-in zoom-in-90 duration-150">
+                  <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-black/85 dark:bg-[#02180e]/95 text-white dark:text-emerald-300 border border-black/10 dark:border-emerald-400/30 text-[10px] font-bold tracking-wide pointer-events-none whitespace-nowrap shadow-md animate-in fade-in zoom-in-90 duration-150">
                     {item.label}
                   </div>
                 )}
@@ -161,21 +150,11 @@ export function Header() {
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-3 animate-peek-expand z-50 origin-top"
                   >
                     {/* Caret Notch */}
-                    <div className="w-3 h-3 rotate-45 mx-auto -mb-1.5 bg-white/90 dark:bg-[#03160e]/90 border-t border-l border-white/90 dark:border-white/25 backdrop-blur-2xl relative z-10" />
+                    <div className="w-3 h-3 rotate-45 mx-auto -mb-1.5 bg-white/90 dark:bg-[#042416] border-t border-l border-black/10 dark:border-emerald-400/30 backdrop-blur-2xl relative z-10" />
 
                     {/* Flyout Window */}
-                    <div
-                      className="rounded-2xl p-2.5 border border-white/80 dark:border-white/25 shadow-[0_25px_60px_rgba(0,0,0,0.25)] backdrop-blur-3xl w-[320px] overflow-hidden"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0.38) 100%)",
-                        backdropFilter: "blur(28px) saturate(240%) contrast(108%)",
-                        WebkitBackdropFilter: "blur(28px) saturate(240%) contrast(108%)",
-                        boxShadow:
-                          "inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95), 0 20px 50px rgba(0, 0, 0, 0.2)",
-                      }}
-                    >
-                      <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 px-2 py-1 mb-1 border-b border-black/10 dark:border-white/10 flex items-center justify-between">
+                    <div className="mac-dock-flyout rounded-2xl p-2.5 w-[320px] overflow-hidden">
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 px-2 py-1 mb-1 border-b border-black/10 dark:border-emerald-400/20 flex items-center justify-between">
                         <span>{item.label} Directory</span>
                         <Link href={item.href} className="hover:underline flex items-center gap-0.5">
                           <span>View All</span>
@@ -195,7 +174,7 @@ export function Header() {
                                   <sub.icon size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                                   <span className="truncate">{sub.name}</span>
                                 </div>
-                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/10 text-black/70 dark:text-gray-300">
+                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-black/5 dark:bg-emerald-500/20 text-black/70 dark:text-emerald-300">
                                   {sub.badge}
                                 </span>
                               </Link>
@@ -219,7 +198,7 @@ export function Header() {
         </nav>
 
         {/* Dock Vertical Divider */}
-        <div className="h-6 w-px bg-black/15 dark:bg-white/20 mx-0.5 sm:mx-1" />
+        <div className="h-6 w-px bg-black/10 dark:bg-emerald-400/20 mx-0.5 sm:mx-1" />
 
         {/* Right Dock Controls */}
         <div className="flex items-center gap-1 sm:gap-1.5">
@@ -231,7 +210,7 @@ export function Header() {
           {/* Fee Payment App Icon */}
           <Link
             href="/admissions"
-            className="hidden sm:flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl border border-black/15 dark:border-white/20 bg-white/20 dark:bg-white/10 text-black dark:text-white hover:scale-120 hover:-translate-y-1 hover:bg-white/40 transition-all duration-200 shadow-sm"
+            className="hidden sm:flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl border border-black/10 dark:border-emerald-400/20 bg-black/5 dark:bg-emerald-500/10 text-black dark:text-gray-100 hover:scale-120 hover:-translate-y-1 hover:bg-emerald-500/20 transition-all duration-200 shadow-sm"
             aria-label="Fee Payment"
             title="Fee Payment"
           >
@@ -260,15 +239,7 @@ export function Header() {
 
       {/* ─── Mobile Drawer ─── */}
       {menuOpen && (
-        <div
-          className="pointer-events-auto absolute top-16 left-4 right-4 rounded-3xl border border-white/80 dark:border-white/25 p-5 space-y-2 animate-in fade-in zoom-in-95 slide-in-from-top-3 duration-250 shadow-2xl max-w-md mx-auto"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.45) 100%)",
-            backdropFilter: "blur(32px) saturate(240%) contrast(108%)",
-            WebkitBackdropFilter: "blur(32px) saturate(240%) contrast(108%)",
-          }}
-        >
+        <div className="mac-dock-flyout pointer-events-auto absolute top-16 left-4 right-4 rounded-3xl p-5 space-y-2 animate-in fade-in zoom-in-95 slide-in-from-top-3 duration-250 shadow-2xl max-w-md mx-auto">
           {DOCK_ITEMS.map((item) => (
             <Link
               key={item.label}
