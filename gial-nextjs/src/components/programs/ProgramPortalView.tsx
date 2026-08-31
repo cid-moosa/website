@@ -178,7 +178,7 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
       setSelectedFaculty(null);
       setIsFacultyClosing(false);
       setActiveCardId(null);
-    }, 700);
+    }, 740);
   };
 
   // Keyboard accessibility

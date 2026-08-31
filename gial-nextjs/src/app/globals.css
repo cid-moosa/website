@@ -200,24 +200,24 @@ body {
 @keyframes cardGamePickupFlip {
   0% {
     opacity: 1;
-    transform: perspective(1400px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -50px) rotateY(180deg) rotateX(8deg) scale3d(var(--scale-x, 0.48), var(--scale-y, 0.48), 1);
+    transform: perspective(1000px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -180px) rotateY(180deg) rotateX(12deg) scale3d(var(--scale-x, 0.48), var(--scale-y, 0.48), 1);
   }
-  38% {
+  40% {
     opacity: 1;
-    transform: perspective(1400px) translate3d(calc(var(--orig-x, 0px) * 0.55), calc(var(--orig-y, 0px) * 0.55 - 40px), 90px) rotateY(110deg) rotateX(12deg) scale3d(0.72, 0.72, 1);
+    transform: perspective(1000px) translate3d(calc(var(--orig-x, 0px) * 0.45), calc(var(--orig-y, 0px) * 0.45 - 60px), 260px) rotateY(95deg) rotateX(16deg) scale3d(1.18, 1.18, 1);
   }
-  72% {
+  75% {
     opacity: 1;
-    transform: perspective(1400px) translate3d(calc(var(--orig-x, 0px) * 0.15), -8px, 35px) rotateY(25deg) rotateX(-3deg) scale3d(0.96, 0.96, 1);
+    transform: perspective(1000px) translate3d(calc(var(--orig-x, 0px) * 0.1), -12px, 80px) rotateY(20deg) rotateX(-2deg) scale3d(1.03, 1.03, 1);
   }
   100% {
     opacity: 1;
-    transform: perspective(1400px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1);
+    transform: perspective(1000px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1);
   }
 }
 
 .animate-card-pickup-flip {
-  animation: cardGamePickupFlip 0.72s cubic-bezier(0.2, 0.85, 0.32, 1.05) forwards;
+  animation: cardGamePickupFlip 0.76s cubic-bezier(0.18, 0.9, 0.28, 1.02) forwards;
   transform-style: preserve-3d;
   transform-origin: center center;
   backface-visibility: hidden;
@@ -228,24 +228,24 @@ body {
 @keyframes cardGameUnflipPutDown {
   0% {
     opacity: 1;
-    transform: perspective(1400px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1);
+    transform: perspective(1000px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1);
   }
-  28% {
+  30% {
     opacity: 1;
-    transform: perspective(1400px) translate3d(calc(var(--orig-x, 0px) * 0.15), -8px, 35px) rotateY(25deg) rotateX(-3deg) scale3d(0.96, 0.96, 1);
+    transform: perspective(1000px) translate3d(calc(var(--orig-x, 0px) * 0.1), -12px, 120px) rotateY(25deg) rotateX(8deg) scale3d(1.06, 1.06, 1);
   }
-  62% {
+  65% {
     opacity: 1;
-    transform: perspective(1400px) translate3d(calc(var(--orig-x, 0px) * 0.55), calc(var(--orig-y, 0px) * 0.55 - 40px), 90px) rotateY(110deg) rotateX(12deg) scale3d(0.72, 0.72, 1);
+    transform: perspective(1000px) translate3d(calc(var(--orig-x, 0px) * 0.6), calc(var(--orig-y, 0px) * 0.6 - 40px), -60px) rotateY(115deg) rotateX(14deg) scale3d(0.72, 0.72, 1);
   }
   100% {
     opacity: 1;
-    transform: perspective(1400px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -50px) rotateY(180deg) rotateX(8deg) scale3d(var(--scale-x, 0.48), var(--scale-y, 0.48), 1);
+    transform: perspective(1000px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -180px) rotateY(180deg) rotateX(12deg) scale3d(var(--scale-x, 0.48), var(--scale-y, 0.48), 1);
   }
 }
 
 .animate-card-unflip-putdown {
-  animation: cardGameUnflipPutDown 0.72s cubic-bezier(0.2, 0.85, 0.32, 1.05) forwards !important;
+  animation: cardGameUnflipPutDown 0.76s cubic-bezier(0.18, 0.9, 0.28, 1.02) forwards !important;
   transform-style: preserve-3d !important;
   transform-origin: center center !important;
   backface-visibility: hidden !important;
