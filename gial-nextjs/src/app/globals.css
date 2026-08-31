@@ -101,14 +101,6 @@ body {
   color: var(--clr-text);
   font-family: "Inter", "Outfit", system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
-}
-
-.glass,
-.card-inner,
-.mac-dock-tray,
-.mac-dock-flyout {
-  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 ::selection {

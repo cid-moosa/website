@@ -48,19 +48,21 @@ export function ThemeToggle() {
         `circle(${endRadius}px at ${x}px ${y}px)`,
       ];
 
-      document.documentElement.animate(
-        {
-          clipPath: currentTheme === "dark" ? clipPath : [...clipPath].reverse(),
-        },
-        {
-          duration: 520,
-          easing: "cubic-bezier(0.25, 1, 0.35, 1)",
-          pseudoElement:
-            currentTheme === "dark"
-              ? "::view-transition-new(root)"
-              : "::view-transition-old(root)",
-        }
-      );
+      requestAnimationFrame(() => {
+        document.documentElement.animate(
+          {
+            clipPath: currentTheme === "dark" ? clipPath : [...clipPath].reverse(),
+          },
+          {
+            duration: 340,
+            easing: "cubic-bezier(0.2, 0.9, 0.3, 1)",
+            pseudoElement:
+              currentTheme === "dark"
+                ? "::view-transition-new(root)"
+                : "::view-transition-old(root)",
+          }
+        );
+      });
     });
   };
 
