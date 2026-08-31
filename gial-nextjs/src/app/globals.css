@@ -200,71 +200,49 @@ body {
 @keyframes cardGamePickupFlip {
   0% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), 0px) rotateY(180deg) rotateX(0deg) scale(var(--scale-x, 0.45), var(--scale-y, 0.45));
-    filter: blur(0px) brightness(0.85);
+    transform: perspective(1400px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -60px) rotateY(180deg) scale3d(var(--scale-x, 0.48), var(--scale-y, 0.48), 1);
   }
-  25% {
+  45% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.85), calc(var(--orig-y, 0px) * 0.85 - 45px), 110px) rotateY(145deg) rotateX(15deg) scale(0.55);
-    filter: blur(2px) brightness(1.25) saturate(130%);
-  }
-  55% {
-    opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.45), calc(var(--orig-y, 0px) * 0.45 - 20px), 70px) rotateY(85deg) rotateX(6deg) scale(0.78);
-    filter: blur(1px) brightness(1.18);
-  }
-  80% {
-    opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.1), 0px, 25px) rotateY(15deg) rotateX(-2deg) scale(0.98);
-    filter: blur(0px) brightness(1.05);
+    transform: perspective(1400px) translate3d(calc(var(--orig-x, 0px) * 0.4), calc(var(--orig-y, 0px) * 0.4 - 30px), 80px) rotateY(70deg) scale3d(0.85, 0.85, 1);
   }
   100% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale(1, 1);
-    filter: blur(0px) brightness(1);
+    transform: perspective(1400px) translate3d(0, 0, 0) rotateY(0deg) scale3d(1, 1, 1);
   }
 }
 
 .animate-card-pickup-flip {
-  animation: cardGamePickupFlip 0.82s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: cardGamePickupFlip 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-style: preserve-3d;
   transform-origin: center center;
-  will-change: transform, filter, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
 @keyframes cardGameUnflipPutDown {
   0% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale(1, 1);
-    filter: blur(0px) brightness(1);
+    transform: perspective(1400px) translate3d(0, 0, 0) rotateY(0deg) scale3d(1, 1, 1);
   }
-  25% {
+  45% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.1), 0px, 25px) rotateY(15deg) rotateX(-2deg) scale(0.98);
-    filter: blur(0px) brightness(1.05);
-  }
-  55% {
-    opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.45), calc(var(--orig-y, 0px) * 0.45 - 20px), 70px) rotateY(85deg) rotateX(6deg) scale(0.78);
-    filter: blur(1px) brightness(1.18);
-  }
-  80% {
-    opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.85), calc(var(--orig-y, 0px) * 0.85 - 45px), 110px) rotateY(145deg) rotateX(15deg) scale(0.55);
-    filter: blur(2px) brightness(1.25) saturate(130%);
+    transform: perspective(1400px) translate3d(calc(var(--orig-x, 0px) * 0.4), calc(var(--orig-y, 0px) * 0.4 - 30px), 80px) rotateY(70deg) scale3d(0.85, 0.85, 1);
   }
   100% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), 0px) rotateY(180deg) rotateX(0deg) scale(var(--scale-x, 0.45), var(--scale-y, 0.45));
-    filter: blur(0px) brightness(0.85);
+    transform: perspective(1400px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -60px) rotateY(180deg) scale3d(var(--scale-x, 0.48), var(--scale-y, 0.48), 1);
   }
 }
 
 .animate-card-unflip-putdown {
-  animation: cardGameUnflipPutDown 0.82s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+  animation: cardGameUnflipPutDown 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   transform-style: preserve-3d !important;
   transform-origin: center center !important;
-  will-change: transform, filter, opacity !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  will-change: transform !important;
   pointer-events: none !important;
 }
 
