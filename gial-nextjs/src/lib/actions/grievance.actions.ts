@@ -45,7 +45,7 @@ export async function submitGrievance(prevState: any, formData: FormData) {
     };
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0].message };
+      return { success: false, error: (error as any).issues?.[0]?.message || (error as any).errors?.[0]?.message || "Validation failed" };
     }
     return { success: false, error: "An unexpected error occurred while submitting." };
   }

@@ -17,8 +17,8 @@ export default async function NoticesPage(props: {
         categoryFilter ? { category: categoryFilter } : {},
         searchQuery ? {
           OR: [
-            { title: { contains: searchQuery, mode: "insensitive" } },
-            { content: { contains: searchQuery, mode: "insensitive" } },
+            { title: { contains: searchQuery } },
+            { content: { contains: searchQuery } },
           ],
         } : {},
       ],
