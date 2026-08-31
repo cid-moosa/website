@@ -1,0 +1,150 @@
+// Prisma Schema - GIAL Full-Stack Platform
+// SQLite via Local Development
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 🛡️ Auth & Users 🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️🛡️
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("FACULTY")
+  departmentId String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("users")
+}
+
+// 🎓 Academic Programs 🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓
+
+model Program {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  title           String
+  shortTitle      String?
+  code            String    // e.g. "BCA", "BBA"
+  degreeLevel     String    // "UG" or "PG"
+  department      String?
+  duration        String    @default("3 Years")
+  eligibility     String?
+  overview        String?
+  objectives      String?   // JSON string
+  curriculum      String?   // JSON string
+  careerProspects String?   // JSON string
+  syllabusPdfUrl  String?
+  themeColors     String?   // JSON string
+  themeEmojis     String?   // JSON string
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  faculty         Faculty[]
+
+  @@map("programs")
+}
+
+// 👨‍🏫 Faculty 👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫👨‍🏫
+
+model Faculty {
+  id              String   @id @default(cuid())
+  name            String
+  designation     String
+  qualification   String
+  specialization  String?
+  bio             String?
+  email           String?
+  phone           String?
+  profileImageUrl String?
+  researchPapers  String?    // JSON string
+  priorityOrder   Int      @default(0)
+  programId       String?
+  program         Program? @relation(fields: [programId], references: [id], onDelete: SetNull)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("faculty")
+}
+
+// 📌 Notices & Circulars 📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌
+
+model Notice {
+  id             String   @id @default(cuid())
+  title          String
+  category       String   @default("Academic") // Academic, Exam, Event, Urgent
+  targetAudience String?
+  content        String?
+  attachmentUrl  String?
+  isTickerActive Boolean  @default(false)
+  publishedDate  DateTime @default(now())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("notices")
+}
+
+// 📑 IQAC Documents 📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑📑
+
+model IqacDocument {
+  id            String   @id @default(cuid())
+  documentTitle String
+  aqarYear      String   // e.g. "2023-24"
+  category      String   // SSR, AQAR, Minutes, Feedback
+  fileUrl       String
+  publicAccess  Boolean  @default(true)
+  uploadedAt    DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("iqac_documents")
+}
+
+// ⚖️ Student Grievance Redressal ⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️⚖️
+
+model Grievance {
+  id              String   @id @default(cuid())
+  ticketId        String   @unique @default(cuid())
+  studentName     String?
+  email           String
+  category        String   // Anti-Ragging, Academic, POSH/ICC, General
+  description     String
+  status          String   @default("Pending") // Pending, In-Review, Resolved
+  resolutionNotes String?
+  isAnonymous     Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("grievances")
+}
+
+// 📧 Contact Submissions 📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧📧
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String?
+  email     String
+  phone     String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("contact_submissions")
+}
+
+// 📫 Newsletter Subscribers 📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫📫
+
+model NewsletterSubscriber {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  subscribedAt DateTime @default(now())
+
+  @@map("newsletter_subscribers")
+}

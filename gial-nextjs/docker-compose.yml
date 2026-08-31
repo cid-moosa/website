@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://gial:gial_password@db:5432/gial_db
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=development_secret_key_change_in_prod
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=gial
+      - POSTGRES_PASSWORD=gial_password
+      - POSTGRES_DB=gial_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
