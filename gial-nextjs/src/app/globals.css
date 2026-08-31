@@ -1,31 +1,33 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *, [data-theme='dark'], [data-theme='dark'] *));
+
 /* ─── Custom Theme Tokens ────────────────────────────────── */
 :root,
 [data-theme='light'],
 .light {
   --clr-bg-deep: #f8fafc;
-  --clr-bg-card: rgba(255, 255, 255, 0.38);
-  --clr-bg-section: rgba(255, 255, 255, 0.25);
-  --clr-card-inner: rgba(255, 255, 255, 0.5);
-  --clr-card-inner-border: rgba(255, 255, 255, 0.7);
+  --clr-bg-card: rgba(255, 255, 255, 0.88);
+  --clr-bg-section: rgba(248, 250, 252, 0.92);
+  --clr-card-inner: #f8fafc;
+  --clr-card-inner-border: #e2e8f0;
   --clr-surface: #ffffff;
   --clr-accent-400: #059669;
   --clr-accent-500: #10b981;
   --clr-accent-600: #047857;
   --clr-gold: #b45309;
-  --clr-text: #000000;
-  --clr-text-muted: #000000;
-  --clr-border: rgba(255, 255, 255, 0.75);
+  --clr-text: #090d16;
+  --clr-text-muted: #334155;
+  --clr-border: rgba(203, 213, 225, 0.85);
   --clr-glow: rgba(16, 185, 129, 0.15);
-  --modal-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.35) 100%);
-  --modal-border: rgba(255, 255, 255, 0.9);
-  --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.18) 100%);
-  --glass-highlight: rgba(255, 255, 255, 0.95);
-  --dock-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.12) 100%);
-  --dock-border: rgba(255, 255, 255, 0.75);
-  --dock-highlight: rgba(255, 255, 255, 0.95);
-  --dock-flyout-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.45) 100%);
+  --modal-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.92) 100%);
+  --modal-border: rgba(203, 213, 225, 0.9);
+  --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.85) 100%);
+  --glass-highlight: rgba(255, 255, 255, 1);
+  --dock-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(241, 245, 249, 0.8) 100%);
+  --dock-border: rgba(203, 213, 225, 0.85);
+  --dock-highlight: rgba(255, 255, 255, 1);
+  --dock-flyout-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
   --radius: 1.25rem;
   --header-h: 4.5rem;
 }
@@ -175,18 +177,61 @@ body {
   transition: all 0.25s ease;
 }
 
-[data-theme='light'] .liquid-glass,
-[data-theme='light'] .glass {
-  background: rgba(255, 255, 255, 0.88) !important;
-  border-color: rgba(203, 213, 225, 0.85) !important;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+/* ─── Light Mode High-Contrast Enforcement ─── */
+:root:not(.dark),
+html:not(.dark),
+[data-theme='light'] {
+  color: #090d16;
 }
 
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6 {
+  color: #090d16 !important;
+}
+
+html:not(.dark) p {
+  color: #1e293b;
+}
+
+html:not(.dark) .glass,
+[data-theme='light'] .glass,
+html:not(.dark) .liquid-glass,
+[data-theme='light'] .liquid-glass {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(203, 213, 225, 0.9) !important;
+  color: #090d16 !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) .card-inner,
+[data-theme='light'] .card-inner {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #090d16 !important;
+}
+
+html:not(.dark) .card-inner span,
+html:not(.dark) .card-inner h4,
+html:not(.dark) .card-inner h5 {
+  color: #090d16 !important;
+}
+
+html:not(.dark) .card-inner p,
+html:not(.dark) .card-inner li {
+  color: #334155 !important;
+}
+
+html:not(.dark) .liquid-glass-modal,
 [data-theme='light'] .liquid-glass-modal {
-  background: rgba(255, 255, 255, 0.78) !important;
-  border-color: rgba(255, 255, 255, 0.95) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(203, 213, 225, 0.95) !important;
+  color: #090d16 !important;
   box-shadow: 
-    0 30px 70px -15px rgba(0, 0, 0, 0.18),
+    0 30px 70px -15px rgba(0, 0, 0, 0.22),
     inset 0 1.5px 2px 0 rgba(255, 255, 255, 1) !important;
 }
 
