@@ -118,26 +118,33 @@ export function Header() {
                   href={item.href}
                   className={`relative flex flex-col items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl transition-all duration-200 origin-bottom ${
                     isHovered
-                      ? "scale-130 -translate-y-2 bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 shadow-lg ring-1 ring-emerald-400/40"
+                      ? "scale-130 -translate-y-2 bg-emerald-500/20 text-emerald-900 dark:text-emerald-300 shadow-lg ring-1 ring-emerald-400/40"
                       : isNeighbor
-                      ? "scale-112 -translate-y-0.5 text-black dark:text-gray-100 bg-black/5 dark:bg-emerald-500/10"
+                      ? "scale-112 -translate-y-0.5 text-slate-950 dark:text-gray-100 bg-slate-200/80 dark:bg-emerald-500/10"
                       : isActive
-                      ? "bg-emerald-500/25 text-emerald-800 dark:text-emerald-400 font-bold"
-                      : "text-black/80 dark:text-gray-200 hover:bg-emerald-500/15"
+                      ? "bg-emerald-500/25 text-emerald-800 dark:text-emerald-400 font-black"
+                      : "text-slate-950 dark:text-gray-100 hover:text-emerald-800 dark:hover:text-emerald-300 hover:bg-slate-200/70 dark:hover:bg-emerald-500/15"
                   }`}
                   aria-label={item.label}
                 >
-                  <item.icon size={18} />
+                  <item.icon
+                    size={19}
+                    className={`stroke-[2.4] ${
+                      isActive
+                        ? "text-emerald-700 dark:text-emerald-400"
+                        : "text-slate-950 dark:text-gray-100"
+                    }`}
+                  />
 
                   {/* Active App Indicator Dot */}
                   {isActive && (
-                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-500 shadow-sm" />
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 shadow-sm" />
                   )}
                 </Link>
 
                 {/* macOS Floating Tooltip Pill */}
                 {isHovered && !activeDropdown && (
-                  <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-black/85 dark:bg-[#02180e]/95 text-white dark:text-emerald-300 border border-black/10 dark:border-emerald-400/30 text-[10px] font-bold tracking-wide pointer-events-none whitespace-nowrap shadow-md animate-in fade-in zoom-in-90 duration-150">
+                  <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-black/90 dark:bg-[#02180e]/95 text-white dark:text-emerald-300 border border-black/15 dark:border-emerald-400/30 text-[10px] font-black tracking-wide pointer-events-none whitespace-nowrap shadow-md animate-in fade-in zoom-in-90 duration-150">
                     {item.label}
                   </div>
                 )}
@@ -150,13 +157,13 @@ export function Header() {
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-3 animate-peek-expand z-50 origin-top"
                   >
                     {/* Caret Notch */}
-                    <div className="w-3 h-3 rotate-45 mx-auto -mb-1.5 bg-white/90 dark:bg-[#042416] border-t border-l border-black/10 dark:border-emerald-400/30 backdrop-blur-2xl relative z-10" />
+                    <div className="w-3 h-3 rotate-45 mx-auto -mb-1.5 bg-white dark:bg-[#042416] border-t border-l border-black/15 dark:border-emerald-400/30 backdrop-blur-2xl relative z-10" />
 
                     {/* Flyout Window */}
-                    <div className="mac-dock-flyout rounded-2xl p-2.5 w-[320px] overflow-hidden">
-                      <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 px-2 py-1 mb-1 border-b border-black/10 dark:border-emerald-400/20 flex items-center justify-between">
+                    <div className="mac-dock-flyout rounded-2xl p-2.5 w-[320px] overflow-hidden bg-white/95 dark:bg-[#042416]/95 border border-black/15 dark:border-emerald-400/30 shadow-2xl">
+                      <div className="text-[10px] font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-400 px-2 py-1 mb-1 border-b border-black/10 dark:border-emerald-400/20 flex items-center justify-between">
                         <span>{item.label} Directory</span>
-                        <Link href={item.href} className="hover:underline flex items-center gap-0.5">
+                        <Link href={item.href} className="hover:underline flex items-center gap-0.5 text-emerald-800 dark:text-emerald-400 font-bold">
                           <span>View All</span>
                           <ArrowRight size={9} />
                         </Link>
@@ -168,13 +175,13 @@ export function Header() {
                               <Link
                                 key={sub.name}
                                 href={sub.href}
-                                className="group/sub flex items-center justify-between px-2.5 py-1.5 text-xs font-bold text-black dark:text-gray-100 hover:bg-emerald-500/20 rounded-xl transition-all hover:translate-x-1"
+                                className="group/sub flex items-center justify-between px-2.5 py-1.5 text-xs font-black text-slate-950 dark:text-gray-100 hover:bg-emerald-500/20 rounded-xl transition-all hover:translate-x-1"
                               >
                                 <div className="flex items-center gap-2 min-w-0">
-                                  <sub.icon size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                                  <sub.icon size={13} className="text-emerald-700 dark:text-emerald-400 flex-shrink-0 stroke-[2.5]" />
                                   <span className="truncate">{sub.name}</span>
                                 </div>
-                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-black/5 dark:bg-emerald-500/20 text-black/70 dark:text-emerald-300">
+                                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-black/10 dark:bg-emerald-500/20 text-slate-900 dark:text-emerald-300">
                                   {sub.badge}
                                 </span>
                               </Link>
@@ -183,7 +190,7 @@ export function Header() {
                               <Link
                                 key={sub.name}
                                 href={sub.href}
-                                className="block px-2.5 py-1.5 text-xs font-bold text-black dark:text-gray-100 hover:bg-emerald-500/20 rounded-xl transition-all hover:translate-x-1"
+                                className="block px-2.5 py-1.5 text-xs font-black text-slate-950 dark:text-gray-100 hover:bg-emerald-500/20 rounded-xl transition-all hover:translate-x-1"
                               >
                                 {sub.name}
                               </Link>
@@ -198,7 +205,7 @@ export function Header() {
         </nav>
 
         {/* Dock Vertical Divider */}
-        <div className="h-6 w-px bg-black/10 dark:bg-emerald-400/20 mx-0.5 sm:mx-1" />
+        <div className="h-6 w-px bg-black/20 dark:bg-emerald-400/20 mx-0.5 sm:mx-1" />
 
         {/* Right Dock Controls */}
         <div className="flex items-center gap-1 sm:gap-1.5">
@@ -210,17 +217,17 @@ export function Header() {
           {/* Fee Payment App Icon */}
           <Link
             href="/admissions"
-            className="hidden sm:flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl border border-black/10 dark:border-emerald-400/20 bg-black/5 dark:bg-emerald-500/10 text-black dark:text-gray-100 hover:scale-120 hover:-translate-y-1 hover:bg-emerald-500/20 transition-all duration-200 shadow-sm"
+            className="hidden sm:flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl border border-black/20 dark:border-emerald-400/20 bg-slate-200/80 dark:bg-emerald-500/10 text-slate-950 dark:text-gray-100 hover:scale-120 hover:-translate-y-1 hover:bg-emerald-500/20 transition-all duration-200 shadow-sm"
             aria-label="Fee Payment"
             title="Fee Payment"
           >
-            <CreditCard size={16} />
+            <CreditCard size={18} className="stroke-[2.4] text-slate-950 dark:text-gray-100" />
           </Link>
 
           {/* Apply Now Pill */}
           <Link
             href="/admissions"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white text-xs font-bold shadow-md shadow-emerald-500/30 hover:scale-110 hover:-translate-y-1 active:scale-95 transition-all duration-200"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white text-xs font-black shadow-md shadow-emerald-500/30 hover:scale-110 hover:-translate-y-1 active:scale-95 transition-all duration-200"
           >
             <Sparkles size={13} />
             <span className="hidden sm:inline">Apply</span>
@@ -229,7 +236,7 @@ export function Header() {
           {/* Mobile Drawer Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden flex items-center justify-center w-9 h-9 rounded-xl text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition-colors"
+            className="md:hidden flex items-center justify-center w-9 h-9 rounded-xl text-slate-950 dark:text-white hover:bg-black/10 dark:hover:bg-white/10 active:scale-95 transition-colors"
             aria-label="Toggle Menu"
           >
             {menuOpen ? <X size={18} /> : <Menu size={18} />}
