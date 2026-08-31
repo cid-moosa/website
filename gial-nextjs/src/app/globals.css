@@ -58,6 +58,29 @@
   --dock-flyout-bg: linear-gradient(135deg, rgba(4, 28, 17, 0.82) 0%, rgba(1, 14, 8, 0.92) 100%);
 }
 
+/* ─── View Transition API Circular Ripple Animation ─── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
 /* ─── Base Styles ────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -78,7 +101,14 @@ body {
   color: var(--clr-text);
   font-family: "Inter", "Outfit", system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+}
+
+.glass,
+.card-inner,
+.mac-dock-tray,
+.mac-dock-flyout {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 ::selection {
