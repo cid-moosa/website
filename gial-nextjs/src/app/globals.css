@@ -203,15 +203,20 @@ body {
     transform: perspective(1600px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), 0px) rotateY(180deg) rotateX(0deg) scale(var(--scale-x, 0.45), var(--scale-y, 0.45));
     filter: blur(0px) brightness(0.85);
   }
-  30% {
+  25% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.7), calc(var(--orig-y, 0px) * 0.7 - 35px), 90px) rotateY(120deg) rotateX(12deg) scale(0.65);
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.85), calc(var(--orig-y, 0px) * 0.85 - 45px), 110px) rotateY(145deg) rotateX(15deg) scale(0.55);
     filter: blur(2px) brightness(1.25) saturate(130%);
   }
-  70% {
+  55% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.18), -10px, 40px) rotateY(20deg) rotateX(-4deg) scale(0.96);
-    filter: blur(0px) brightness(1.1);
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.45), calc(var(--orig-y, 0px) * 0.45 - 20px), 70px) rotateY(85deg) rotateX(6deg) scale(0.78);
+    filter: blur(1px) brightness(1.18);
+  }
+  80% {
+    opacity: 1;
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.1), 0px, 25px) rotateY(15deg) rotateX(-2deg) scale(0.98);
+    filter: blur(0px) brightness(1.05);
   }
   100% {
     opacity: 1;
@@ -221,7 +226,7 @@ body {
 }
 
 .animate-card-pickup-flip {
-  animation: cardGamePickupFlip 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cardGamePickupFlip 0.82s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   transform-style: preserve-3d;
   transform-origin: center center;
   will-change: transform, filter, opacity;
@@ -233,14 +238,19 @@ body {
     transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale(1, 1);
     filter: blur(0px) brightness(1);
   }
-  30% {
+  25% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.18), -10px, 40px) rotateY(20deg) rotateX(-4deg) scale(0.96);
-    filter: blur(0px) brightness(1.1);
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.1), 0px, 25px) rotateY(15deg) rotateX(-2deg) scale(0.98);
+    filter: blur(0px) brightness(1.05);
   }
-  70% {
+  55% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.7), calc(var(--orig-y, 0px) * 0.7 - 35px), 90px) rotateY(120deg) rotateX(12deg) scale(0.65);
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.45), calc(var(--orig-y, 0px) * 0.45 - 20px), 70px) rotateY(85deg) rotateX(6deg) scale(0.78);
+    filter: blur(1px) brightness(1.18);
+  }
+  80% {
+    opacity: 1;
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.85), calc(var(--orig-y, 0px) * 0.85 - 45px), 110px) rotateY(145deg) rotateX(15deg) scale(0.55);
     filter: blur(2px) brightness(1.25) saturate(130%);
   }
   100% {
@@ -251,7 +261,7 @@ body {
 }
 
 .animate-card-unflip-putdown {
-  animation: cardGameUnflipPutDown 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  animation: cardGameUnflipPutDown 0.82s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
   transform-style: preserve-3d !important;
   transform-origin: center center !important;
   will-change: transform, filter, opacity !important;
