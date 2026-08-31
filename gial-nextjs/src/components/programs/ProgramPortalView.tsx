@@ -139,7 +139,28 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
   // State
   const [activeNav, setActiveNav] = useState("overview");
   const [selectedFaculty, setSelectedFaculty] = useState<Faculty | null>(null);
+  const [isFacultyClosing, setIsFacultyClosing] = useState(false);
   const [applyModalOpen, setApplyModalOpen] = useState(false);
+
+  const closeFacultyModal = () => {
+    setIsFacultyClosing(true);
+    setTimeout(() => {
+      setSelectedFaculty(null);
+      setIsFacultyClosing(false);
+    }, 240);
+  };
+
+  // Keyboard accessibility
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (selectedFaculty) closeFacultyModal();
+        if (applyModalOpen) setApplyModalOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [selectedFaculty, applyModalOpen]);
 
   // Scroll spy to highlight active nav button
   useEffect(() => {
@@ -839,12 +860,16 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
       {/* ─── 3D Fluid Flipping Liquid Glass Faculty Profile Modal ─── */}
       {selectedFaculty && (
         <div
-          onClick={() => setSelectedFaculty(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md animate-in fade-in duration-300 perspective-stage"
+          onClick={closeFacultyModal}
+          className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md perspective-stage transition-opacity duration-250 ${
+            isFacultyClosing ? "opacity-0" : "animate-in fade-in duration-300"
+          }`}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-2xl liquid-glass-modal p-8 md:p-10 rounded-[2rem] shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto animate-3d-flip-modal"
+            className={`relative w-full max-w-2xl liquid-glass-modal p-6 sm:p-8 md:p-10 rounded-[2rem] shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto border border-white/80 dark:border-white/20 ${
+              isFacultyClosing ? "animate-3d-close-modal" : "animate-3d-flip-modal"
+            }`}
           >
             {/* Ambient Refraction Beam Sweep & Speed Streak Flare */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -854,13 +879,13 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
             {/* Specular Highlight Top Edge */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400/60 dark:via-emerald-400 to-transparent pointer-events-none" />
 
-            {/* Close Button */}
+            {/* High-Contrast Responsive Close Button */}
             <button
-              onClick={() => setSelectedFaculty(null)}
-              className="absolute top-6 right-6 p-2.5 rounded-full bg-black/10 hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20 text-black dark:text-white transition-colors cursor-pointer border border-black/10 dark:border-white/10 z-10"
+              onClick={closeFacultyModal}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/10 hover:bg-black/25 dark:bg-white/15 dark:hover:bg-white/30 text-black dark:text-white transition-all duration-150 cursor-pointer border border-black/15 dark:border-white/20 z-30 flex items-center justify-center active:scale-90 shadow-sm"
               aria-label="Close modal"
             >
-              <X size={18} />
+              <X size={20} className="stroke-[2.5]" />
             </button>
 
             {/* Profile Header with 3D Avatar Flip */}
