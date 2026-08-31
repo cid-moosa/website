@@ -118,22 +118,18 @@ export function Header() {
                   href={item.href}
                   className={`relative flex flex-col items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl transition-all duration-200 origin-bottom ${
                     isHovered
-                      ? "scale-130 -translate-y-2 bg-emerald-500/20 text-emerald-900 dark:text-emerald-300 shadow-lg ring-1 ring-emerald-400/40"
+                      ? "scale-130 -translate-y-2 bg-emerald-500/20 shadow-lg ring-1 ring-emerald-400/40"
                       : isNeighbor
-                      ? "scale-112 -translate-y-0.5 text-slate-950 dark:text-gray-100 bg-slate-200/80 dark:bg-emerald-500/10"
+                      ? "scale-112 -translate-y-0.5 bg-black/5 dark:bg-emerald-500/10"
                       : isActive
-                      ? "bg-emerald-500/25 text-emerald-800 dark:text-emerald-400 font-black"
-                      : "text-slate-950 dark:text-gray-100 hover:text-emerald-800 dark:hover:text-emerald-300 hover:bg-slate-200/70 dark:hover:bg-emerald-500/15"
+                      ? "bg-emerald-500/25 font-black"
+                      : "hover:bg-black/5 dark:hover:bg-emerald-500/15"
                   }`}
                   aria-label={item.label}
                 >
                   <item.icon
                     size={19}
-                    className={`stroke-[2.4] ${
-                      isActive
-                        ? "text-emerald-700 dark:text-emerald-400"
-                        : "text-slate-950 dark:text-gray-100"
-                    }`}
+                    className={`stroke-[2.5] ${isActive ? "dock-app-icon-active" : "dock-app-icon"}`}
                   />
 
                   {/* Active App Indicator Dot */}
@@ -217,11 +213,11 @@ export function Header() {
           {/* Fee Payment App Icon */}
           <Link
             href="/admissions"
-            className="hidden sm:flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl border border-black/20 dark:border-emerald-400/20 bg-slate-200/80 dark:bg-emerald-500/10 text-slate-950 dark:text-gray-100 hover:scale-120 hover:-translate-y-1 hover:bg-emerald-500/20 transition-all duration-200 shadow-sm"
+            className="dock-control-btn hidden sm:flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl hover:scale-120 hover:-translate-y-1 hover:bg-emerald-500/20 transition-all duration-200 shadow-sm"
             aria-label="Fee Payment"
             title="Fee Payment"
           >
-            <CreditCard size={18} className="stroke-[2.4] text-slate-950 dark:text-gray-100" />
+            <CreditCard size={18} className="dock-app-icon stroke-[2.5]" />
           </Link>
 
           {/* Apply Now Pill */}
@@ -236,10 +232,10 @@ export function Header() {
           {/* Mobile Drawer Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden flex items-center justify-center w-9 h-9 rounded-xl text-slate-950 dark:text-white hover:bg-black/10 dark:hover:bg-white/10 active:scale-95 transition-colors"
+            className="md:hidden flex items-center justify-center w-9 h-9 rounded-xl hover:bg-black/10 dark:hover:bg-white/10 active:scale-95 transition-colors"
             aria-label="Toggle Menu"
           >
-            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            {menuOpen ? <X size={18} className="dock-app-icon stroke-[2.5]" /> : <Menu size={18} className="dock-app-icon stroke-[2.5]" />}
           </button>
         </div>
       </div>

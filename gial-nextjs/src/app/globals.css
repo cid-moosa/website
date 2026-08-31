@@ -281,6 +281,49 @@ body {
     inset 0 2px 3px 0 var(--dock-highlight);
 }
 
+/* ─── Dynamic Dock Theme Elements ─── */
+.dock-app-icon {
+  color: #090d16 !important;
+  stroke: #090d16 !important;
+  transition: color 0.2s ease, stroke 0.2s ease;
+}
+
+.dark .dock-app-icon,
+[data-theme='dark'] .dock-app-icon,
+html.dark .dock-app-icon {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.dock-app-icon-active {
+  color: #047857 !important;
+  stroke: #047857 !important;
+  transition: color 0.2s ease, stroke 0.2s ease;
+}
+
+.dark .dock-app-icon-active,
+[data-theme='dark'] .dock-app-icon-active,
+html.dark .dock-app-icon-active {
+  color: #34d399 !important;
+  stroke: #34d399 !important;
+}
+
+.dock-control-btn {
+  background: rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(0, 0, 0, 0.18) !important;
+  color: #090d16 !important;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.dark .dock-control-btn,
+[data-theme='dark'] .dock-control-btn,
+html.dark .dock-control-btn {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border: 1px solid rgba(52, 211, 153, 0.25) !important;
+  color: #ffffff !important;
+}
+
+
 
 
 @keyframes backdropFadeOut {

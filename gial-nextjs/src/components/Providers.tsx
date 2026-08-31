@@ -20,7 +20,7 @@ export function Providers({ children }: { children: ReactNode }) {
 
   return (
     <SessionProvider>
-      <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem={false}>
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
       </ThemeProvider>
     </SessionProvider>

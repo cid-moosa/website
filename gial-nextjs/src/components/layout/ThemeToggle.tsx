@@ -17,7 +17,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-slate-200/80 dark:bg-[var(--clr-bg-card)] border border-black/20 dark:border-[var(--clr-border)] text-slate-950 dark:text-[var(--clr-text)] hover:bg-slate-300 dark:hover:bg-[var(--clr-bg-section)] transition-colors flex items-center justify-center relative overflow-hidden group shadow-sm"
+      className="dock-control-btn w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl transition-colors flex items-center justify-center relative overflow-hidden group shadow-sm"
       aria-label="Toggle theme"
     >
       <div className="relative z-10 flex items-center justify-center w-5 h-5">
