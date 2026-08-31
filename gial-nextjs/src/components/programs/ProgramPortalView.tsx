@@ -139,8 +139,24 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
   // State
   const [activeNav, setActiveNav] = useState("overview");
   const [selectedFaculty, setSelectedFaculty] = useState<Faculty | null>(null);
+  const [cardOrigin, setCardOrigin] = useState<{ x: number; y: number } | null>(null);
   const [isFacultyClosing, setIsFacultyClosing] = useState(false);
   const [applyModalOpen, setApplyModalOpen] = useState(false);
+
+  const handleFacultySelect = (member: Faculty, e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const cardCenterX = rect.left + rect.width / 2;
+    const cardCenterY = rect.top + rect.height / 2;
+
+    setCardOrigin({
+      x: Math.round(cardCenterX - centerX),
+      y: Math.round(cardCenterY - centerY),
+    });
+    setIsFacultyClosing(false);
+    setSelectedFaculty(member);
+  };
 
   const closeFacultyModal = () => {
     setIsFacultyClosing(true);
@@ -544,7 +560,7 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
               {program.faculty.map((member) => (
                 <div
                   key={member.id}
-                  onClick={() => setSelectedFaculty(member)}
+                  onClick={(e) => handleFacultySelect(member, e)}
                   className="glass p-6 rounded-3xl hover:border-emerald-500/50 hover:bg-slate-50 dark:hover:bg-white/5 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-md"
                 >
                   <div className="flex flex-col items-center text-center">
@@ -867,8 +883,12 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
         >
           <div
             onClick={(e) => e.stopPropagation()}
+            style={{
+              "--orig-x": `${cardOrigin?.x || 0}px`,
+              "--orig-y": `${cardOrigin?.y || 0}px`,
+            } as React.CSSProperties}
             className={`relative w-full max-w-2xl liquid-glass-modal p-6 sm:p-8 md:p-10 rounded-[2rem] shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto border border-white/80 dark:border-white/20 ${
-              isFacultyClosing ? "animate-3d-close-modal" : "animate-3d-flip-modal"
+              isFacultyClosing ? "animate-card-unflip-putdown" : "animate-card-pickup-flip"
             }`}
           >
             {/* Ambient Refraction Beam Sweep & Speed Streak Flare */}
