@@ -51,15 +51,12 @@ export function ThemeToggle() {
       requestAnimationFrame(() => {
         document.documentElement.animate(
           {
-            clipPath: currentTheme === "dark" ? clipPath : [...clipPath].reverse(),
+            clipPath,
           },
           {
-            duration: 340,
+            duration: 380,
             easing: "cubic-bezier(0.2, 0.9, 0.3, 1)",
-            pseudoElement:
-              currentTheme === "dark"
-                ? "::view-transition-new(root)"
-                : "::view-transition-old(root)",
+            pseudoElement: "::view-transition-new(root)",
           }
         );
       });
