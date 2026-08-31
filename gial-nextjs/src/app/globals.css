@@ -265,28 +265,51 @@ body {
     inset 0 2px 3px 0 var(--dock-highlight);
 }
 
-@keyframes modal3DCloseFlip {
+@keyframes modal3DCinematicClose {
   0% {
     opacity: 1;
-    transform: scale(1) translateZ(0) rotateY(0deg) rotateX(0deg) translateY(0);
+    transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1);
     filter: blur(0px) brightness(1);
   }
-  20% {
+  25% {
     opacity: 1;
-    transform: scale(1.05) translateZ(40px) rotateY(-4deg) rotateX(-3deg) translateY(-10px);
-    filter: blur(0px) brightness(1.2);
+    transform: perspective(1600px) translate3d(0, -20px, 70px) rotateY(-18deg) rotateX(10deg) rotateZ(4deg) scale(1.08);
+    filter: blur(0px) brightness(1.25) saturate(130%);
+  }
+  60% {
+    opacity: 0.85;
+    transform: perspective(1600px) translate3d(60px, 90px, -400px) rotateY(75deg) rotateX(-25deg) rotateZ(-12deg) scale(0.6);
+    filter: blur(4px) brightness(0.9);
   }
   100% {
     opacity: 0;
-    transform: scale(0.2) translateZ(-700px) rotateX(40deg) rotateY(28deg) translateY(180px);
-    filter: blur(24px) brightness(0.5);
+    transform: perspective(1600px) translate3d(120px, 240px, -1000px) rotateY(130deg) rotateX(-50deg) rotateZ(-25deg) scale(0.1);
+    filter: blur(28px) brightness(0.3);
   }
 }
 
 .animate-3d-close-modal {
-  animation: modal3DCloseFlip 0.44s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  transform-style: preserve-3d;
-  will-change: transform, opacity, filter;
+  animation: modal3DCinematicClose 0.55s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+  transform-style: preserve-3d !important;
+  transform-origin: center center !important;
+  will-change: transform, opacity, filter !important;
+  pointer-events: none !important;
+}
+
+@keyframes backdropFadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-backdrop-fade-out {
+  animation: backdropFadeOut 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
 }
 
 @keyframes avatar3DCinematicFlip {

@@ -147,7 +147,7 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
     setTimeout(() => {
       setSelectedFaculty(null);
       setIsFacultyClosing(false);
-    }, 420);
+    }, 520);
   };
 
   // Keyboard accessibility
@@ -861,8 +861,8 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
       {selectedFaculty && (
         <div
           onClick={closeFacultyModal}
-          className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md perspective-stage transition-opacity duration-400 ${
-            isFacultyClosing ? "opacity-0" : "animate-in fade-in duration-300"
+          className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md perspective-stage ${
+            isFacultyClosing ? "animate-backdrop-fade-out" : "animate-in fade-in duration-300"
           }`}
         >
           <div
