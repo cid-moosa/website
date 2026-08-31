@@ -147,7 +147,7 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
     setTimeout(() => {
       setSelectedFaculty(null);
       setIsFacultyClosing(false);
-    }, 240);
+    }, 420);
   };
 
   // Keyboard accessibility
@@ -861,7 +861,7 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
       {selectedFaculty && (
         <div
           onClick={closeFacultyModal}
-          className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md perspective-stage transition-opacity duration-250 ${
+          className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md perspective-stage transition-opacity duration-400 ${
             isFacultyClosing ? "opacity-0" : "animate-in fade-in duration-300"
           }`}
         >
@@ -879,13 +879,13 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
             {/* Specular Highlight Top Edge */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400/60 dark:via-emerald-400 to-transparent pointer-events-none" />
 
-            {/* High-Contrast Responsive Close Button */}
+            {/* High-Contrast Responsive Close Button with Interactive Spin */}
             <button
               onClick={closeFacultyModal}
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/10 hover:bg-black/25 dark:bg-white/15 dark:hover:bg-white/30 text-black dark:text-white transition-all duration-150 cursor-pointer border border-black/15 dark:border-white/20 z-30 flex items-center justify-center active:scale-90 shadow-sm"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/10 hover:bg-black/25 dark:bg-white/15 dark:hover:bg-white/30 text-black dark:text-white transition-all duration-200 cursor-pointer border border-black/15 dark:border-white/20 z-30 flex items-center justify-center active:scale-85 hover:rotate-90 shadow-md group"
               aria-label="Close modal"
             >
-              <X size={20} className="stroke-[2.5]" />
+              <X size={22} className="stroke-[2.5] group-hover:scale-110 transition-transform" />
             </button>
 
             {/* Profile Header with 3D Avatar Flip */}
