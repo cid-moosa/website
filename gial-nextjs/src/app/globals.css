@@ -200,40 +200,40 @@ body {
 @keyframes cardGamePickupFlip {
   0% {
     opacity: 1;
-    transform: translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -100px) rotateY(180deg) rotateX(12deg) scale3d(var(--scale-x, 0.45), var(--scale-y, 0.45), 1);
+    transform: translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -60px) rotateX(25deg) rotateY(-18deg) rotateZ(3deg) scale3d(var(--scale-x, 0.45), var(--scale-y, 0.45), 1);
   }
   100% {
     opacity: 1;
-    transform: translate3d(0px, 0px, 0px) rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1);
+    transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);
   }
 }
 
 .animate-card-pickup-flip {
-  animation: cardGamePickupFlip 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cardGamePickupFlip 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-style: preserve-3d;
   transform-origin: center center;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
   will-change: transform;
 }
 
 @keyframes cardGameUnflipPutDown {
   0% {
     opacity: 1;
-    transform: translate3d(0px, 0px, 0px) rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1);
+    transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);
   }
   100% {
     opacity: 1;
-    transform: translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -100px) rotateY(180deg) rotateX(12deg) scale3d(var(--scale-x, 0.45), var(--scale-y, 0.45), 1);
+    transform: translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -60px) rotateX(25deg) rotateY(-18deg) rotateZ(3deg) scale3d(var(--scale-x, 0.45), var(--scale-y, 0.45), 1);
   }
 }
 
 .animate-card-unflip-putdown {
-  animation: cardGameUnflipPutDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  animation: cardGameUnflipPutDown 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   transform-style: preserve-3d !important;
   transform-origin: center center !important;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
+  backface-visibility: visible !important;
+  -webkit-backface-visibility: visible !important;
   will-change: transform !important;
   pointer-events: none !important;
 }
