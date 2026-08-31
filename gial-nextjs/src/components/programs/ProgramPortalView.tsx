@@ -174,11 +174,15 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
 
   const closeFacultyModal = () => {
     setIsFacultyClosing(true);
+    // Reappear table slot card early right as the flying card lands
+    setTimeout(() => {
+      setActiveCardId(null);
+    }, 420);
+    // Complete modal unmount
     setTimeout(() => {
       setSelectedFaculty(null);
       setIsFacultyClosing(false);
-      setActiveCardId(null);
-    }, 660);
+    }, 500);
   };
 
   // Keyboard accessibility

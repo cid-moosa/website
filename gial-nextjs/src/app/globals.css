@@ -229,7 +229,7 @@ body {
 }
 
 .animate-card-unflip-putdown {
-  animation: cardGameUnflipPutDown 0.68s cubic-bezier(0.2, 0.9, 0.28, 1) forwards !important;
+  animation: cardGameUnflipPutDown 0.52s cubic-bezier(0.2, 0.9, 0.28, 1) forwards !important;
   transform-style: preserve-3d !important;
   transform-origin: center center !important;
   backface-visibility: visible !important;
