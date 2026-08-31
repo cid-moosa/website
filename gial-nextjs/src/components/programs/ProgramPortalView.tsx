@@ -139,7 +139,13 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
   // State
   const [activeNav, setActiveNav] = useState("overview");
   const [selectedFaculty, setSelectedFaculty] = useState<Faculty | null>(null);
-  const [cardOrigin, setCardOrigin] = useState<{ x: number; y: number } | null>(null);
+  const [activeCardId, setActiveCardId] = useState<string | null>(null);
+  const [cardOrigin, setCardOrigin] = useState<{
+    x: number;
+    y: number;
+    scaleX: number;
+    scaleY: number;
+  } | null>(null);
   const [isFacultyClosing, setIsFacultyClosing] = useState(false);
   const [applyModalOpen, setApplyModalOpen] = useState(false);
 
@@ -150,10 +156,18 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
     const cardCenterX = rect.left + rect.width / 2;
     const cardCenterY = rect.top + rect.height / 2;
 
+    const modalW = Math.min(window.innerWidth * 0.9, 640);
+    const modalH = Math.min(window.innerHeight * 0.85, 520);
+    const scaleX = Math.max(0.2, Math.min(0.75, rect.width / modalW));
+    const scaleY = Math.max(0.2, Math.min(0.75, rect.height / modalH));
+
     setCardOrigin({
       x: Math.round(cardCenterX - centerX),
       y: Math.round(cardCenterY - centerY),
+      scaleX: parseFloat(scaleX.toFixed(3)),
+      scaleY: parseFloat(scaleY.toFixed(3)),
     });
+    setActiveCardId(member.id);
     setIsFacultyClosing(false);
     setSelectedFaculty(member);
   };
@@ -163,7 +177,8 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
     setTimeout(() => {
       setSelectedFaculty(null);
       setIsFacultyClosing(false);
-    }, 520);
+      setActiveCardId(null);
+    }, 470);
   };
 
   // Keyboard accessibility
@@ -561,7 +576,9 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
                 <div
                   key={member.id}
                   onClick={(e) => handleFacultySelect(member, e)}
-                  className="glass p-6 rounded-3xl hover:border-emerald-500/50 hover:bg-slate-50 dark:hover:bg-white/5 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-md"
+                  className={`glass p-6 rounded-3xl hover:border-emerald-500/50 hover:bg-slate-50 dark:hover:bg-white/5 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-md ${
+                    activeCardId === member.id ? "opacity-0 scale-95 pointer-events-none" : "opacity-100"
+                  }`}
                 >
                   <div className="flex flex-col items-center text-center">
                     {/* Avatar Frame */}
@@ -886,6 +903,8 @@ export function ProgramPortalView({ program }: ProgramPortalProps) {
             style={{
               "--orig-x": `${cardOrigin?.x || 0}px`,
               "--orig-y": `${cardOrigin?.y || 0}px`,
+              "--scale-x": `${cardOrigin?.scaleX || 0.45}`,
+              "--scale-y": `${cardOrigin?.scaleY || 0.45}`,
             } as React.CSSProperties}
             className={`relative w-full max-w-2xl liquid-glass-modal p-6 sm:p-8 md:p-10 rounded-[2rem] shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto border border-white/80 dark:border-white/20 ${
               isFacultyClosing ? "animate-card-unflip-putdown" : "animate-card-pickup-flip"

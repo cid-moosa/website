@@ -197,66 +197,64 @@ body {
   transform-style: preserve-3d;
 }
 
-@keyframes cardPickupFlip {
+@keyframes cardGamePickupFlip {
   0% {
-    opacity: 0;
-    transform: perspective(1600px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -240px) rotateY(180deg) rotateX(25deg) scale(0.32);
-    filter: blur(14px) brightness(1.5) saturate(160%);
+    opacity: 1;
+    transform: perspective(1600px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), 0px) rotateY(180deg) rotateX(0deg) scale(var(--scale-x, 0.45), var(--scale-y, 0.45));
+    filter: blur(0px) brightness(0.85);
   }
-  35% {
-    opacity: 0.9;
-    filter: blur(5px) brightness(1.2) saturate(120%);
+  30% {
+    opacity: 1;
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.7), calc(var(--orig-y, 0px) * 0.7 - 35px), 90px) rotateY(120deg) rotateX(12deg) scale(0.65);
+    filter: blur(2px) brightness(1.25) saturate(130%);
   }
-  65% {
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.15), calc(var(--orig-y, 0px) * 0.15 - 30px), 80px) rotateY(-12deg) rotateX(6deg) scale(1.06);
-    filter: blur(0px) brightness(1.08);
-  }
-  85% {
-    transform: perspective(1600px) translate3d(0, 0, 15px) rotateY(3deg) rotateX(-2deg) scale(0.995);
-    filter: blur(0px) brightness(1);
+  70% {
+    opacity: 1;
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.18), -10px, 40px) rotateY(20deg) rotateX(-4deg) scale(0.96);
+    filter: blur(0px) brightness(1.1);
   }
   100% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale(1);
+    transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale(1, 1);
     filter: blur(0px) brightness(1);
   }
 }
 
 .animate-card-pickup-flip {
-  animation: cardPickupFlip 0.52s cubic-bezier(0.18, 0.95, 0.28, 1) forwards;
+  animation: cardGamePickupFlip 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-style: preserve-3d;
   transform-origin: center center;
-  will-change: transform, opacity, filter;
+  will-change: transform, filter, opacity;
 }
 
-@keyframes cardUnflipPutDown {
+@keyframes cardGameUnflipPutDown {
   0% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale(1);
+    transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale(1, 1);
     filter: blur(0px) brightness(1);
   }
-  20% {
+  30% {
     opacity: 1;
-    transform: perspective(1600px) translate3d(0, -35px, 95px) rotateY(-22deg) rotateX(14deg) scale(1.08);
-    filter: blur(0px) brightness(1.35) saturate(150%);
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.18), -10px, 40px) rotateY(20deg) rotateX(-4deg) scale(0.96);
+    filter: blur(0px) brightness(1.1);
   }
-  60% {
-    opacity: 0.85;
-    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.65), calc(var(--orig-y, 0px) * 0.65), -140px) rotateY(105deg) rotateX(22deg) scale(0.58);
-    filter: blur(8px) brightness(1);
+  70% {
+    opacity: 1;
+    transform: perspective(1600px) translate3d(calc(var(--orig-x, 0px) * 0.7), calc(var(--orig-y, 0px) * 0.7 - 35px), 90px) rotateY(120deg) rotateX(12deg) scale(0.65);
+    filter: blur(2px) brightness(1.25) saturate(130%);
   }
   100% {
-    opacity: 0;
-    transform: perspective(1600px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), -300px) rotateY(180deg) rotateX(30deg) scale(0.28);
-    filter: blur(22px) brightness(0.4);
+    opacity: 1;
+    transform: perspective(1600px) translate3d(var(--orig-x, 0px), var(--orig-y, 0px), 0px) rotateY(180deg) rotateX(0deg) scale(var(--scale-x, 0.45), var(--scale-y, 0.45));
+    filter: blur(0px) brightness(0.85);
   }
 }
 
 .animate-card-unflip-putdown {
-  animation: cardUnflipPutDown 0.54s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+  animation: cardGameUnflipPutDown 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   transform-style: preserve-3d !important;
   transform-origin: center center !important;
-  will-change: transform, opacity, filter !important;
+  will-change: transform, filter, opacity !important;
   pointer-events: none !important;
 }
 
